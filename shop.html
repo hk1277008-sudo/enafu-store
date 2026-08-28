@@ -30,12 +30,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-white font-sans text-brand-slate antialiased selection:bg-brand-orange selection:text-white">
+<body class="bg-white font-sans text-brand-slate antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-brand-navy text-white text-[11px] font-semibold tracking-wider uppercase py-2.5 px-4 text-center border-b border-white/10">
-    ⚡ ENAFU STORE • ELECTRICAL & LIGHTING CATALOG • FREE DELIVERY ACROSS PAKISTAN
+  <div class="bg-brand-navy text-white text-[11px] font-semibold tracking-wider uppercase py-2.5 px-4 text-center border-b border-white/10 flex items-center justify-center gap-2">
+    <span>⚡ FLAT 50% OFF THIS WINTER • FREE DELIVERY ALL OVER PAKISTAN ⚡</span>
   </div>
 
   <!-- HEADER -->
@@ -58,8 +59,22 @@
         </div>
       </a>
 
+      <!-- DESKTOP SEARCH BAR -->
+      <div class="hidden lg:flex items-center relative flex-1 max-w-md mx-6">
+        <input 
+          type="text" 
+          id="globalSearch" 
+          oninput="handleSearchInput()" 
+          placeholder="Search catalog items..." 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl pl-10 pr-4 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-navy transition shadow-sm"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+
       <!-- DESKTOP NAVIGATION -->
-      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-700 text-xs tracking-wide">
+      <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-700 text-xs tracking-wide">
         <a href="index.html" class="hover:text-brand-orange transition">Home</a>
         <a href="shop.html" class="text-brand-orange font-bold">Shop Catalog</a>
         <a href="about.html" class="hover:text-brand-orange transition">About Us</a>
@@ -83,21 +98,52 @@
       </div>
     </div>
 
-    <!-- MOBILE MENU DRAWER -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-4 space-y-3 transition-all">
-      <a href="index.html" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">Home</a>
-      <a href="shop.html" class="block font-semibold text-brand-orange text-sm">Shop Catalog</a>
-      <a href="about.html" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">About Us</a>
-      <a href="contact.html" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">Contact</a>
+    <!-- MOBILE SEARCH BAR -->
+    <div class="px-4 pb-3 lg:hidden">
+      <div class="relative w-full">
+        <input 
+          type="text" 
+          id="mobileGlobalSearch" 
+          oninput="handleSearchInput()" 
+          placeholder="Search products..." 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl pl-10 pr-4 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-navy"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU DRAWER WITH CATEGORIES -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-5 space-y-4 shadow-xl transition-all animate__animated animate__fadeIn">
+      <div class="border-b border-slate-100 pb-3">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Navigation Menu</span>
+        <div class="space-y-2 font-semibold text-sm text-slate-700">
+          <a href="index.html" class="block py-1 hover:text-brand-orange">Home</a>
+          <a href="shop.html" class="block py-1 text-brand-orange font-bold">Shop Full Catalog</a>
+          <a href="about.html" class="block py-1 hover:text-brand-orange">About Us</a>
+          <a href="contact.html" class="block py-1 hover:text-brand-orange">Contact & Support</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Shop by Categories</span>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="setCategory('Winter Essentials'); toggleMobileMenu();" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition text-left">🔥 Winter</button>
+          <button onclick="setCategory('Lighting'); toggleMobileMenu();" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition text-left">💡 Lighting</button>
+          <button onclick="setCategory('Safety'); toggleMobileMenu();" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition text-left">🛡️ Safety</button>
+          <button onclick="setCategory('Accessories'); toggleMobileMenu();" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition text-left">🔌 Accessories</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- PAGE HEADER -->
   <section class="bg-brand-bgLight py-12 border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">FULL INVENTORY</span>
-      <h1 class="text-3xl font-extrabold text-brand-navy mt-1">Explore Electrical Catalog</h1>
-      <p class="text-slate-600 text-xs mt-2">Browse industrial heaters, safety breakers, and modern LED solutions.</p>
+      <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">FULL INVENTORY • 50% OFF</span>
+      <h1 class="text-3xl font-extrabold text-brand-navy mt-1">Electrical & Heating Catalog</h1>
+      <p class="text-slate-600 text-xs mt-2">Browse winter heaters, safety circuit breakers, and modern LED lighting solutions.</p>
     </div>
   </section>
 
@@ -105,37 +151,59 @@
   <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- SEARCH & CATEGORY FILTER CONTROL BAR -->
-      <div class="bg-brand-bgLight p-4 rounded-2xl border border-brand-border shadow-sm mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
-        <!-- Search Input -->
-        <div class="relative w-full md:w-80">
-          <input 
-            type="text" 
-            id="searchInput" 
-            oninput="handleFilterChange()" 
-            placeholder="Search catalog items..." 
-            class="w-full bg-white border border-brand-border rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brand-navy transition"
-          />
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </div>
-
-        <!-- Category Filter Buttons -->
-        <div id="categoryFilters" class="flex flex-wrap gap-2 w-full md:w-auto">
-          <button onclick="setCategory('All')" class="cat-btn bg-brand-navy text-white px-3.5 py-2 rounded-xl text-xs font-bold transition">All</button>
-          <button onclick="setCategory('Winter Essentials')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-3.5 py-2 rounded-xl text-xs font-bold transition">Winter Essentials</button>
-          <button onclick="setCategory('Lighting')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-3.5 py-2 rounded-xl text-xs font-bold transition">Lighting</button>
-          <button onclick="setCategory('Safety')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-3.5 py-2 rounded-xl text-xs font-bold transition">Safety</button>
-          <button onclick="setCategory('Accessories')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-3.5 py-2 rounded-xl text-xs font-bold transition">Accessories</button>
-        </div>
+      <!-- CATEGORY FILTER BUTTON BAR -->
+      <div class="bg-brand-bgLight p-4 rounded-2xl border border-brand-border shadow-sm mb-8 flex flex-wrap gap-2 justify-center sm:justify-start">
+        <button onclick="setCategory('All')" class="cat-btn bg-brand-navy text-white px-4 py-2.5 rounded-xl text-xs font-bold transition">All Products</button>
+        <button onclick="setCategory('Winter Essentials')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-4 py-2.5 rounded-xl text-xs font-bold transition">🔥 Winter Essentials</button>
+        <button onclick="setCategory('Lighting')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-4 py-2.5 rounded-xl text-xs font-bold transition">💡 Lighting Solutions</button>
+        <button onclick="setCategory('Safety')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-4 py-2.5 rounded-xl text-xs font-bold transition">🛡️ Safety & Breakers</button>
+        <button onclick="setCategory('Accessories')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-4 py-2.5 rounded-xl text-xs font-bold transition">🔌 Accessories</button>
       </div>
 
       <!-- PRODUCT GRID -->
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamic products loaded here -->
+        <!-- Dynamically populated -->
       </div>
       
+    </div>
+  </section>
+
+  <!-- TRUSTED ICONS SECTION -->
+  <section class="py-12 bg-slate-900 text-white border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">🚚</div>
+          <div>
+            <h4 class="font-bold text-xs">Free Nationwide Delivery</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">All over Pakistan at your doorstep</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">⚡</div>
+          <div>
+            <h4 class="font-bold text-xs">Flat 50% Off Winter Sale</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Unbeatable prices on all heaters</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">🛡️</div>
+          <div>
+            <h4 class="font-bold text-xs">Verified Electrical Quality</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Tested for safety and performance</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">💬</div>
+          <div>
+            <h4 class="font-bold text-xs">Direct WhatsApp Support</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Instant assistance at 0343-5356153</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -159,7 +227,7 @@
 
     <div class="p-5 bg-brand-bgLight border-t border-brand-border space-y-4">
       <div class="flex justify-between items-center text-sm">
-        <span class="font-bold text-brand-navy">Subtotal</span>
+        <span class="font-bold text-brand-navy">Subtotal (50% OFF Applied)</span>
         <span id="cartSubtotal" class="font-extrabold text-brand-navy">Rs. 0</span>
       </div>
       <button onclick="openCheckoutModal()" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-extrabold py-3.5 rounded-xl text-xs transition uppercase tracking-wider shadow-lg shadow-brand-orange/20 flex items-center justify-center gap-2">
@@ -184,7 +252,7 @@
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">Phone Number *</label>
-          <input type="tel" id="custPhone" required placeholder="e.g. 03001234567" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
+          <input type="tel" id="custPhone" required placeholder="e.g. 03435356153" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
         <div>
@@ -194,7 +262,7 @@
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">City *</label>
-          <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
+          <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad, Lahore" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
         <!-- PAYMENT METHODS -->
@@ -239,75 +307,140 @@
         <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3"></div>
 
         <button type="submit" class="w-full mt-4 bg-brand-navy hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
-          Confirm Order & Send Auto SMS
+          Confirm Order
         </button>
       </form>
     </div>
   </div>
 
+  <!-- DIRECT WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/923435356153?text=Hello%20Enafu%20Store,%20I%20want%20to%20inquire%20about%20electrical%20products." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110" aria-label="WhatsApp Support">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
   <!-- FOOTER -->
   <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-400">
-      <p>&copy; 2026 Enafu Store. All rights reserved.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-extrabold text-lg">Enafu<span class="text-brand-orange">Store</span></span>
+        </div>
+        <p class="text-slate-400 text-[11px] leading-relaxed">
+          Your trusted destination for premium electrical appliances, winter heaters, and safety lighting across Pakistan with free delivery.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Customer Care</h4>
+        <p class="text-slate-400 text-[11px] mb-1">Phone: 0343-5356153</p>
+        <p class="text-slate-400 text-[11px] mb-1">WhatsApp: 0343-5356153</p>
+        <p class="text-slate-400 text-[11px]">Email: enafu.store@gmail.com</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Quick Links</h4>
+        <ul class="space-y-1.5 text-slate-400 text-[11px]">
+          <li><a href="shop.html" class="hover:text-white transition">Shop Catalog</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Secure Payment Partners</h4>
+        <p class="text-slate-400 text-[11px] mb-3">We accept EasyPaisa, FastPay, Credit/Debit Cards, and Direct Bank Transfers.</p>
+        <div class="flex items-center gap-2 bg-white/5 p-3 rounded-xl border border-white/10 w-fit">
+          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">🏦 Meezan Bank Supported</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 pt-8 border-t border-white/10">
+      <p>&copy; 2026 Enafu Store. All rights reserved. • Powered by Hamad Khan</p>
     </div>
   </footer>
 
   <!-- SCRIPT LOGIC -->
   <script>
-    const ADMIN_SMS_NUMBER = "+923000000000";
+    const ADMIN_SMS_NUMBER = "+923435356153";
 
     const PRODUCTS = [
-      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
-      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 3, name: 'Oil Filled Radiator Heater 11 Fin', category: 'Winter Essentials', price: 18500, isWinter: true, img: 'images/products/heater-radiator.jpg', fallbackImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80' },
-      { id: 4, name: 'Infrared Carbon Fiber Tube Heater 1200W', category: 'Winter Essentials', price: 9200, isWinter: true, img: 'images/products/heater-infrared.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
-      { id: 5, name: 'Electric Instant Geyser Heating Element', category: 'Winter Essentials', price: 3400, isWinter: true, img: 'images/products/geyser-element.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', price: 3200, isWinter: true, img: 'images/products/thermostat.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
-      { id: 7, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', price: 1200, isWinter: false, img: 'images/products/led-bulb-pack.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
-      { id: 8, name: 'High Bay Industrial LED Light 100W', category: 'Lighting', price: 6500, isWinter: false, img: 'images/products/led-highbay.jpg', fallbackImg: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=500&q=80' },
-      { id: 9, name: 'Outdoor Waterproof LED Floodlight 50W', category: 'Lighting', price: 2800, isWinter: false, img: 'images/products/led-floodlight.jpg', fallbackImg: 'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=500&q=80' },
-      { id: 10, name: 'Recessed Ceiling LED Panel Light 18W', category: 'Lighting', price: 950, isWinter: false, img: 'images/products/led-panel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
-      { id: 11, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', price: 2100, isWinter: false, img: 'images/products/breaker-32a.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 12, name: 'Digital Over-Under Voltage Protector 63A', category: 'Safety', price: 2900, isWinter: false, img: 'images/products/voltage-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 13, name: 'Double Pole Main Switch Circuit Breaker', category: 'Safety', price: 1750, isWinter: false, img: 'images/products/main-switch.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 14, name: 'Surge Protector Spike Guard Strip', category: 'Safety', price: 2250, isWinter: false, img: 'images/products/surge-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 15, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', price: 1850, isWinter: false, img: 'images/products/extension-5m.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 16, name: 'Universal Travel Adapter with Dual USB', category: 'Accessories', price: 1100, isWinter: false, img: 'images/products/travel-adapter.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 17, name: 'Multi-Socket Wall Distribution Box', category: 'Accessories', price: 1450, isWinter: false, img: 'images/products/socket-box.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 18, name: 'Heavy Duty Copper Cable Reel 10M', category: 'Accessories', price: 4200, isWinter: false, img: 'images/products/cable-reel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' }
+      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', originalPrice: 9000, price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
+      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', originalPrice: 15600, price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
+      { id: 3, name: 'Oil Filled Radiator Heater 11 Fin', category: 'Winter Essentials', originalPrice: 37000, price: 18500, isWinter: true, img: 'images/products/heater-radiator.jpg', fallbackImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80' },
+      { id: 4, name: 'Infrared Carbon Fiber Tube Heater 1200W', category: 'Winter Essentials', originalPrice: 18400, price: 9200, isWinter: true, img: 'images/products/heater-infrared.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
+      { id: 5, name: 'Electric Instant Geyser Heating Element', category: 'Winter Essentials', originalPrice: 6800, price: 3400, isWinter: true, img: 'images/products/geyser-element.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
+      { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', originalPrice: 6400, price: 3200, isWinter: true, img: 'images/products/thermostat.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
+      { id: 7, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', originalPrice: 2400, price: 1200, isWinter: false, img: 'images/products/led-bulb-pack.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
+      { id: 8, name: 'High Bay Industrial LED Light 100W', category: 'Lighting', originalPrice: 13000, price: 6500, isWinter: false, img: 'images/products/led-highbay.jpg', fallbackImg: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=500&q=80' },
+      { id: 9, name: 'Outdoor Waterproof LED Floodlight 50W', category: 'Lighting', originalPrice: 5600, price: 2800, isWinter: false, img: 'images/products/led-floodlight.jpg', fallbackImg: 'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=500&q=80' },
+      { id: 10, name: 'Recessed Ceiling LED Panel Light 18W', category: 'Lighting', originalPrice: 1900, price: 950, isWinter: false, img: 'images/products/led-panel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
+      { id: 11, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', originalPrice: 4200, price: 2100, isWinter: false, img: 'images/products/breaker-32a.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 12, name: 'Digital Over-Under Voltage Protector 63A', category: 'Safety', originalPrice: 5800, price: 2900, isWinter: false, img: 'images/products/voltage-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 13, name: 'Double Pole Main Switch Circuit Breaker', category: 'Safety', originalPrice: 3500, price: 1750, isWinter: false, img: 'images/products/main-switch.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 14, name: 'Surge Protector Spike Guard Strip', category: 'Safety', originalPrice: 4500, price: 2250, isWinter: false, img: 'images/products/surge-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 15, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', originalPrice: 3700, price: 1850, isWinter: false, img: 'images/products/extension-5m.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 16, name: 'Universal Travel Adapter with Dual USB', category: 'Accessories', originalPrice: 2200, price: 1100, isWinter: false, img: 'images/products/travel-adapter.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 17, name: 'Multi-Socket Wall Distribution Box', category: 'Accessories', originalPrice: 2900, price: 1450, isWinter: false, img: 'images/products/socket-box.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 18, name: 'Heavy Duty Copper Cable Reel 10M', category: 'Accessories', originalPrice: 8400, price: 4200, isWinter: false, img: 'images/products/cable-reel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' }
     ];
 
     let cart = JSON.parse(localStorage.getItem('enafu_cart')) || [];
     let selectedCategory = 'All';
 
     const PAYMENT_ACCOUNTS = {
-      EasyPaisa: { title: "EasyPaisa Mobile Wallet", accountTitle: "Hamad Khan", accountNo: "0300 0000000", instruction: "Send total order amount to this EasyPaisa account and keep transaction ID ready." },
-      FastPay: { title: "FastPay Direct Wallet", accountTitle: "Hamad Khan", accountNo: "0300 0000000", instruction: "Transfer amount using FastPay and save transaction receipt." },
-      Card: { title: "Credit / Debit Card", accountTitle: "Enafu Store Accounts", accountNo: "PK36 MEZN 0000 1234 5678 9012", instruction: "Bank: Meezan Bank • IBAN provided above for online bank app transfer." }
+      EasyPaisa: { title: "EasyPaisa Mobile Wallet", accountTitle: "Hamad Khan", accountNo: "0343 5356153", instruction: "Send total order amount to this EasyPaisa account." },
+      FastPay: { title: "FastPay Direct Wallet", accountTitle: "Hamad Khan", accountNo: "0343 5356153", instruction: "Transfer amount using FastPay and save receipt." },
+      Card: { title: "Credit / Debit Card / Meezan Bank", accountTitle: "Enafu Store Accounts", accountNo: "PK36 MEZN 0000 1234 5678 9012", instruction: "Bank: Meezan Bank • IBAN provided above for online bank app transfer." }
     };
 
     function saveCart() { localStorage.setItem('enafu_cart', JSON.stringify(cart)); }
     function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
 
+    // Parse URL parameters for category or search query on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('cat');
+      const searchParam = params.get('search');
+
+      if (catParam) {
+        selectedCategory = catParam;
+      }
+      if (searchParam) {
+        document.getElementById('globalSearch').value = searchParam;
+        document.getElementById('mobileGlobalSearch').value = searchParam;
+      }
+      updateActiveCategoryButton();
+      handleSearchInput();
+    });
+
     function setCategory(cat) {
       selectedCategory = cat;
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        if (btn.innerText.trim() === cat) {
-          btn.className = 'cat-btn bg-brand-navy text-white px-3.5 py-2 rounded-xl text-xs font-bold transition';
-        } else {
-          btn.className = 'cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-3.5 py-2 rounded-xl text-xs font-bold transition';
-        }
-      });
-      handleFilterChange();
+      updateActiveCategoryButton();
+      handleSearchInput();
     }
 
-    function handleFilterChange() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+    function updateActiveCategoryButton() {
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.innerText.includes(selectedCategory) || (selectedCategory === 'All' && btn.innerText.includes('All Products'))) {
+          btn.className = 'cat-btn bg-brand-navy text-white px-4 py-2.5 rounded-xl text-xs font-bold transition';
+        } else {
+          btn.className = 'cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-brand-border px-4 py-2.5 rounded-xl text-xs font-bold transition';
+        }
+      });
+    }
+
+    function handleSearchInput() {
+      const searchVal = (document.getElementById('globalSearch').value || document.getElementById('mobileGlobalSearch').value || '').toLowerCase().trim();
+      
       const filtered = PRODUCTS.filter(p => {
         const matchesCategory = (selectedCategory === 'All' || p.category === selectedCategory);
-        const matchesSearch = p.name.toLowerCase().includes(searchTerm) || p.category.toLowerCase().includes(searchTerm);
+        const matchesSearch = p.name.toLowerCase().includes(searchVal) || p.category.toLowerCase().includes(searchVal);
         return matchesCategory && matchesSearch;
       });
+
       renderCatalog(filtered);
     }
 
@@ -315,7 +448,7 @@
       const grid = document.getElementById('productGrid');
       grid.innerHTML = '';
       if (items.length === 0) {
-        grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-xs">No products found.</div>`;
+        grid.innerHTML = `<div class="col-span-full text-center py-16 text-slate-400 text-xs">No products found matching your search.</div>`;
         return;
       }
       items.forEach(p => {
@@ -323,7 +456,7 @@
           <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div class="aspect-square bg-slate-100 relative overflow-hidden">
               <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
-              ${p.isWinter ? '<span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">Winter</span>' : ''}
+              <span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">50% OFF</span>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
@@ -331,8 +464,11 @@
                 <h3 class="font-bold text-xs text-brand-navy mt-1 leading-snug">${p.name}</h3>
               </div>
               <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
-                <span class="font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
-                <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3 py-1.5 rounded-lg text-[11px] transition">+ Add</button>
+                <div>
+                  <span class="text-[10px] text-slate-400 line-through">Rs. ${p.originalPrice.toLocaleString()}</span>
+                  <span class="block font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
+                </div>
+                <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3.5 py-2 rounded-lg text-[11px] transition">+ Add</button>
               </div>
             </div>
           </div>
@@ -472,11 +608,7 @@
       saveCart();
       updateCartUI();
       closeCheckoutModal();
-      alert('Order submitted! Launching SMS application...');
     }
-
-    renderCatalog(PRODUCTS);
-    updateCartUI();
   </script>
 </body>
 </html>
