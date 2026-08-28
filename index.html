@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VoltByHamad | Premium Electrical & Lighting Solutions</title>
-
-  <!-- VERCEL ANALYTICS -->
-  <script defer src="/_vercel/insights/script.js"></script>
+  <title>Enafu Store | Premium Electrical, Lighting & Winter Heating Essentials</title>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,16 +22,6 @@
           },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-          },
-          animation: {
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 3s ease-in-out infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            }
           }
         }
       }
@@ -43,25 +30,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Animate.css for smooth entrance animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-white font-sans text-brand-slate antialiased relative selection:bg-brand-orange selection:text-white">
+<body class="bg-white font-sans text-brand-slate antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-brand-navy text-white text-[11px] font-semibold tracking-wider uppercase py-2.5 px-4 text-center border-b border-white/10">
-    ⚡ VOLT BY HAMAD • PREMIUM ELECTRICAL PRODUCTS • FREE DELIVERY ACROSS PAKISTAN
+  <div class="bg-brand-navy text-white text-[11px] font-semibold tracking-wider uppercase py-2.5 px-4 text-center border-b border-white/10 flex items-center justify-center gap-2">
+    <span>⚡ FLAT 50% OFF THIS WINTER • FREE DELIVERY ALL OVER PAKISTAN ⚡</span>
   </div>
 
   <!-- HEADER -->
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <!-- WORDMARK LOGO (Supports local image fallback) -->
+      <!-- WORDMARK LOGO -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="h-10 px-2 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
-          <!-- Put your logo at 'images/logo.png' -->
-          <img src="images/logo.png" alt="VoltByHamad Logo" class="h-7 w-auto object-contain onerror-hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          
-          <!-- Fallback SVG Icon if local image is missing -->
+        <div class="h-10 px-2.5 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
+          <img src="images/logo.png" alt="Enafu Store Logo" class="h-7 w-auto object-contain onerror-hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="hidden items-center justify-center">
             <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#FF7A00" stroke="#FF7A00" stroke-width="1"/>
@@ -69,15 +56,29 @@
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="font-extrabold text-xl tracking-tight leading-none text-brand-navy">VoltBy<span class="text-brand-orange">Hamad</span></span>
+          <span class="font-extrabold text-xl tracking-tight leading-none text-brand-navy">Enafu<span class="text-brand-orange">Store</span></span>
           <span class="text-[9px] tracking-widest text-slate-400 uppercase font-bold mt-0.5">Electrical Supplies</span>
         </div>
       </a>
 
+      <!-- DESKTOP SEARCH BAR -->
+      <div class="hidden lg:flex items-center relative flex-1 max-w-md mx-6">
+        <input 
+          type="text" 
+          id="globalSearch" 
+          onkeypress="handleGlobalSearch(event)"
+          placeholder="Search heaters, breakers, LED lights..." 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl pl-10 pr-4 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-navy transition shadow-sm"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+
       <!-- DESKTOP NAVIGATION -->
-      <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-700 text-xs tracking-wide">
-        <a href="#shop" class="hover:text-brand-orange transition">Shop Catalog</a>
-        <a href="#winter" class="hover:text-brand-orange transition">Winter Heating</a>
+      <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-700 text-xs tracking-wide">
+        <a href="index.html" class="text-brand-orange font-bold">Home</a>
+        <a href="shop.html" class="hover:text-brand-orange transition">Shop Catalog</a>
         <a href="about.html" class="hover:text-brand-orange transition">About Us</a>
         <a href="contact.html" class="hover:text-brand-orange transition">Contact</a>
       </nav>
@@ -91,7 +92,6 @@
           <span id="cartBadge" class="bg-brand-orange text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
         </button>
 
-        <!-- HAMBURGER MENU BUTTON -->
         <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-100 text-brand-navy hover:bg-slate-200 focus:outline-none" aria-label="Toggle Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -100,116 +100,177 @@
       </div>
     </div>
 
-    <!-- MOBILE MENU DRAWER -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-4 space-y-3 transition-all">
-      <a href="#shop" onclick="toggleMobileMenu()" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">Shop Catalog</a>
-      <a href="#winter" onclick="toggleMobileMenu()" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">Winter Heating</a>
-      <a href="about.html" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">About Us</a>
-      <a href="contact.html" class="block font-semibold text-slate-700 text-sm hover:text-brand-orange">Contact</a>
+    <!-- MOBILE SEARCH BAR -->
+    <div class="px-4 pb-3 lg:hidden">
+      <div class="relative w-full">
+        <input 
+          type="text" 
+          id="mobileGlobalSearch" 
+          onkeypress="handleMobileGlobalSearch(event)"
+          placeholder="Search products..." 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl pl-10 pr-4 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-navy"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU DRAWER (Amazon / Walmart Style with Categories) -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-5 space-y-4 shadow-xl transition-all animate__animated animate__fadeIn">
+      <div class="border-b border-slate-100 pb-3">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Navigation Menu</span>
+        <div class="space-y-2 font-semibold text-sm text-slate-700">
+          <a href="index.html" class="block py-1 text-brand-orange font-bold">Home</a>
+          <a href="shop.html" class="block py-1 hover:text-brand-orange">Shop Full Catalog</a>
+          <a href="about.html" class="block py-1 hover:text-brand-orange">About Us</a>
+          <a href="contact.html" class="block py-1 hover:text-brand-orange">Contact & Support</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Shop by Categories</span>
+        <div class="grid grid-cols-2 gap-2">
+          <a href="shop.html?cat=Winter+Essentials" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition flex items-center gap-2">
+            🔥 Winter Essentials
+          </a>
+          <a href="shop.html?cat=Lighting" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition flex items-center gap-2">
+            💡 Lighting Solutions
+          </a>
+          <a href="shop.html?cat=Safety" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition flex items-center gap-2">
+            🛡️ Safety & Breakers
+          </a>
+          <a href="shop.html?cat=Accessories" class="p-2.5 bg-slate-50 rounded-xl text-xs font-bold text-brand-navy hover:bg-brand-orange hover:text-white transition flex items-center gap-2">
+            🔌 Accessories
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 flex flex-col gap-1">
+        <span>📞 Support: 0343-5356153</span>
+        <span>✉️ Email: enafu.store@gmail.com</span>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION WITH ANIMATIONS -->
-  <section class="bg-gradient-to-b from-brand-bgLight to-white py-16 sm:py-24 border-b border-brand-border relative overflow-hidden">
-    <div class="absolute -top-10 -right-10 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
-    <div class="absolute bottom-0 -left-10 w-80 h-80 bg-brand-navy/5 rounded-full blur-2xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-      <div>
-        <span class="inline-block px-3.5 py-1.5 bg-brand-orange/10 text-brand-orange text-xs font-bold rounded-full mb-5 border border-brand-orange/20 tracking-wide uppercase">
-          ⚡ Winter Power & Heating Solutions
+  <!-- HERO SECTION WITH FLAT 50% OFF -->
+  <section class="relative bg-brand-navy text-white py-20 lg:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FF7A00_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl animate__animated animate__fadeInUp">
+        <span class="bg-brand-orange text-white text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-lg tracking-wider inline-block mb-4 shadow-md">
+          ❄️ Winter Special Offer
         </span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-brand-navy tracking-tight leading-tight mb-6">
-          High Performance Electrical Gear Built To Last
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+          Flat 50% Off <span class="text-brand-orange block mt-1">This Winter Season</span>
         </h1>
-        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-8 max-w-lg">
-          Equip your home with industrial-grade heaters, energy-efficient warm LED lighting, and certified automatic voltage breakers engineered for safety.
+        <p class="text-slate-300 text-sm sm:text-base mt-4 leading-relaxed">
+          Keep your home warm and secure with Enafu Store's premium collection of quartz heaters, blower heaters, safety circuit breakers, and energy-saving LED lighting.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#winter" class="bg-brand-orange hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-xl text-xs tracking-wider transition uppercase shadow-lg shadow-brand-orange/20 hover:scale-105">
-            Winter Specials
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="shop.html?cat=Winter+Essentials" class="bg-brand-orange hover:bg-orange-600 text-white font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-lg shadow-brand-orange/30 flex items-center gap-2">
+            Shop Winter Heaters &rarr;
           </a>
-          <a href="#shop" class="bg-brand-navy hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl text-xs tracking-wider transition uppercase shadow-lg shadow-brand-navy/20 hover:scale-105">
-            Browse All Gear
+          <a href="shop.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition">
+            Explore All Catalog
           </a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- HERO PREMIUM IMAGE DISPLAY -->
-      <div class="relative animate-float">
-        <div class="bg-white p-4 sm:p-6 rounded-3xl border border-brand-border shadow-xl relative">
-          <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden relative shadow-inner">
-            <img id="heroImage" src="images/hero-heater.jpg" alt="Quartz Radiant Room Heater" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1000&q=80';">
-            <span class="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-              Featured Product
-            </span>
+  <!-- FEATURED CATEGORIES SECTION (Amazon / Walmart Style) -->
+  <section class="py-16 bg-brand-bgLight">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">Department Catalog</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-1">Featured Categories</h2>
+        </div>
+        <a href="shop.html" class="text-xs font-bold text-brand-orange hover:underline">View All &rarr;</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="shop.html?cat=Winter+Essentials" class="group bg-white p-6 rounded-2xl border border-brand-border shadow-sm hover:shadow-md transition text-center flex flex-col items-center justify-center">
+          <div class="w-16 h-16 rounded-2xl bg-orange-50 text-brand-orange flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🔥</div>
+          <h3 class="font-bold text-sm text-brand-navy">Winter Essentials</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Quartz, Blower & Oil Radiators</p>
+        </a>
+
+        <a href="shop.html?cat=Lighting" class="group bg-white p-6 rounded-2xl border border-brand-border shadow-sm hover:shadow-md transition text-center flex flex-col items-center justify-center">
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">💡</div>
+          <h3 class="font-bold text-sm text-brand-navy">Lighting Solutions</h3>
+          <p class="text-[11px] text-slate-500 mt-1">LED Bulbs, Floodlights & Panels</p>
+        </a>
+
+        <a href="shop.html?cat=Safety" class="group bg-white p-6 rounded-2xl border border-brand-border shadow-sm hover:shadow-md transition text-center flex flex-col items-center justify-center">
+          <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🛡️</div>
+          <h3 class="font-bold text-sm text-brand-navy">Safety & Breakers</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Voltage Protectors & 32A Breakers</p>
+        </a>
+
+        <a href="shop.html?cat=Accessories" class="group bg-white p-6 rounded-2xl border border-brand-border shadow-sm hover:shadow-md transition text-center flex flex-col items-center justify-center">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🔌</div>
+          <h3 class="font-bold text-sm text-brand-navy">Accessories & Cables</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Extension Boards & Adapters</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLING PRODUCTS PREVIEW -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">Top Picks</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-1">Featured Best Sellers (50% OFF)</h2>
+        </div>
+        <a href="shop.html" class="text-xs font-bold text-brand-orange hover:underline">Explore Store &rarr;</a>
+      </div>
+
+      <div id="featuredProductGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Dynamically loaded best sellers -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED ICONS SECTION (Above Footer in Separate Section) -->
+  <section class="py-12 bg-slate-900 text-white border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">🚚</div>
+          <div>
+            <h4 class="font-bold text-xs">Free Nationwide Delivery</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">All over Pakistan at your doorstep</p>
           </div>
-          <div class="mt-4 flex justify-between items-center">
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">⚡</div>
+          <div>
+            <h4 class="font-bold text-xs">Flat 50% Off Winter Sale</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Unbeatable prices on all heaters</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">🛡️</div>
             <div>
-              <h3 class="font-extrabold text-brand-navy text-sm">Quartz Radiant Room Heater 800W</h3>
-              <p class="text-xs text-slate-500">Dual Quartz Tubes • Instant Warmth</p>
-            </div>
-            <span class="text-brand-orange font-extrabold text-base">Rs. 4,500</span>
+            <h4 class="font-bold text-xs">Verified Electrical Quality</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Tested for safety and performance</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 justify-center sm:justify-start">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">💬</div>
+          <div>
+            <h4 class="font-bold text-xs">Direct WhatsApp Support</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">Instant assistance at 0343-5356153</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- WINTER ESSENTIALS SECTION -->
-  <section id="winter" class="py-16 bg-white border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">SEASONAL SELECTION</span>
-        <h2 class="text-2xl font-extrabold text-brand-navy mt-1">Winter Heating Essentials</h2>
-      </div>
-
-      <div id="winterContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Winter products injected via JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ALL PRODUCTS CATALOG & FILTERS -->
-  <section id="shop" class="py-16 bg-brand-bgLight">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-8">
-        <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">FULL CATALOG</span>
-        <h2 class="text-2xl font-extrabold text-brand-navy mt-1">Explore All Products</h2>
-      </div>
-
-      <!-- SEARCH & CATEGORY FILTER CONTROL BAR -->
-      <div class="bg-white p-4 rounded-2xl border border-brand-border shadow-sm mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
-        <!-- Search Input -->
-        <div class="relative w-full md:w-80">
-          <input 
-            type="text" 
-            id="searchInput" 
-            oninput="handleFilterChange()" 
-            placeholder="Search heaters, breakers, lighting..." 
-            class="w-full bg-slate-50 border border-brand-border rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brand-navy transition"
-          />
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </div>
-
-        <!-- Category Filter Buttons -->
-        <div id="categoryFilters" class="flex flex-wrap gap-2 w-full md:w-auto">
-          <button onclick="setCategory('All')" class="cat-btn bg-brand-navy text-white px-3.5 py-2 rounded-xl text-xs font-bold transition">All</button>
-          <button onclick="setCategory('Winter Essentials')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold transition">Winter Essentials</button>
-          <button onclick="setCategory('Lighting')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold transition">Lighting</button>
-          <button onclick="setCategory('Safety')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold transition">Safety</button>
-          <button onclick="setCategory('Accessories')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold transition">Accessories</button>
-        </div>
-      </div>
-
-      <!-- PRODUCT GRID -->
-      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamic products loaded here -->
-      </div>
-      
     </div>
   </section>
 
@@ -233,7 +294,7 @@
 
     <div class="p-5 bg-brand-bgLight border-t border-brand-border space-y-4">
       <div class="flex justify-between items-center text-sm">
-        <span class="font-bold text-brand-navy">Subtotal</span>
+        <span class="font-bold text-brand-navy">Subtotal (50% OFF Applied)</span>
         <span id="cartSubtotal" class="font-extrabold text-brand-navy">Rs. 0</span>
       </div>
       <button onclick="openCheckoutModal()" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-extrabold py-3.5 rounded-xl text-xs transition uppercase tracking-wider shadow-lg shadow-brand-orange/20 flex items-center justify-center gap-2">
@@ -242,7 +303,7 @@
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL (DYNAMIC TRANSFER DETAILS & AUTO SMS) -->
+  <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="fixed inset-0 bg-brand-navy/70 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative border border-brand-border">
       <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-navy font-bold text-2xl">&times;</button>
@@ -258,7 +319,7 @@
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">Phone Number *</label>
-          <input type="tel" id="custPhone" required placeholder="e.g. 03001234567" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
+          <input type="tel" id="custPhone" required placeholder="e.g. 03435356153" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
         <div>
@@ -268,7 +329,7 @@
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">City *</label>
-          <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
+          <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad, Lahore" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
         <!-- PAYMENT METHODS -->
@@ -310,257 +371,153 @@
         </div>
 
         <!-- DYNAMIC TRANSFER DETAILS BOX -->
-        <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3">
-          <!-- Populated by JavaScript when EasyPaisa/FastPay selected -->
-        </div>
+        <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3"></div>
 
         <button type="submit" class="w-full mt-4 bg-brand-navy hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
-          Confirm Order & Send Auto SMS
+          Confirm Order
         </button>
       </form>
     </div>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a 
-    href="https://wa.me/923000000000?text=Hello%20VoltByHamad,%20I%20have%20an%20inquiry%20about%20your%20products." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl z-40 transition-transform duration-300 hover:scale-110 flex items-center justify-center animate-bounce"
-    aria-label="Direct WhatsApp Contact"
-  >
-    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+  <!-- DIRECT WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/923435356153?text=Hello%20Enafu%20Store,%20I%20want%20to%20inquire%20about%20electrical%20products." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110" aria-label="WhatsApp Support">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
   </a>
 
-  <!-- ANIMATED PREMIUM FOOTER -->
-  <footer class="bg-brand-navy text-white py-16 border-t border-brand-border relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-80 h-80 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 text-xs relative z-10">
+  <!-- FOOTER WITH MEEZAN BANK & CONTACT INFO -->
+  <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div>
         <div class="flex items-center gap-2 mb-3">
-          <div class="w-8 h-8 rounded-lg bg-brand-orange flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white"/>
-            </svg>
-          </div>
-          <span class="font-extrabold text-xl tracking-tight text-white">VoltBy<span class="text-brand-orange">Hamad</span></span>
+          <span class="font-extrabold text-lg">Enafu<span class="text-brand-orange">Store</span></span>
         </div>
-        <p class="text-slate-400 leading-relaxed mb-4">Your trusted source for heavy-duty heating, smart lighting, and electrical safety gear.</p>
-        <span class="text-slate-500 block">&copy; 2026 VoltByHamad. All rights reserved.</span>
+        <p class="text-slate-400 text-[11px] leading-relaxed">
+          Your trusted destination for premium electrical appliances, winter heaters, and safety lighting across Pakistan with free delivery.
+        </p>
       </div>
 
       <div>
-        <h4 class="font-bold uppercase tracking-wider mb-4 text-brand-orange">Shop Categories</h4>
-        <ul class="space-y-2.5 text-slate-400">
-          <li><a href="#winter" class="hover:text-white transition">Winter Heaters</a></li>
-          <li><a href="#shop" class="hover:text-white transition">Smart LED Lighting</a></li>
-          <li><a href="#shop" class="hover:text-white transition">Circuit Breakers & Safety</a></li>
-          <li><a href="#shop" class="hover:text-white transition">Power Extensions</a></li>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Customer Care</h4>
+        <p class="text-slate-400 text-[11px] mb-1">Phone: 0343-5356153</p>
+        <p class="text-slate-400 text-[11px] mb-1">WhatsApp: 0343-5356153</p>
+        <p class="text-slate-400 text-[11px]">Email: enafu.store@gmail.com</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Quick Links</h4>
+        <ul class="space-y-1.5 text-slate-400 text-[11px]">
+          <li><a href="shop.html" class="hover:text-white transition">Shop Catalog</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="font-bold uppercase tracking-wider mb-4 text-brand-orange">Customer Care</h4>
-        <ul class="space-y-2.5 text-slate-400">
-          <li><a href="about.html" class="hover:text-white transition">About VoltByHamad</a></li>
-          <li><a href="contact.html" class="hover:text-white transition">Support & Contact</a></li>
-          <li><a href="contact.html" class="hover:text-white transition">Cash on Delivery Info</a></li>
-        </ul>
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Secure Payment Partners</h4>
+        <p class="text-slate-400 text-[11px] mb-3">We accept EasyPaisa, FastPay, Credit/Debit Cards, and Direct Bank Transfers.</p>
+        <div class="flex items-center gap-2 bg-white/5 p-3 rounded-xl border border-white/10 w-fit">
+          <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">🏦 Meezan Bank Supported</span>
+        </div>
       </div>
+    </div>
 
-      <div>
-        <h4 class="font-bold uppercase tracking-wider mb-4 text-brand-orange">Direct Admin Contact</h4>
-        <p class="text-slate-400 leading-relaxed mb-2">Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
-        <p class="text-slate-400 mb-1">Phone: <a href="tel:+923000000000" class="hover:text-white font-bold">+92 300 0000000</a></p>
-        <p class="text-slate-400">Email: <a href="mailto:support@voltbyhamad.com" class="hover:text-white font-bold">support@voltbyhamad.com</a></p>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 pt-8 border-t border-white/10">
+      <p>&copy; 2026 Enafu Store. All rights reserved. • Powered by Hamad Khan</p>
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC -->
+  <!-- SCRIPT LOGIC (Flat 50% Off Calculation & SMS Direct Integration) -->
   <script>
-    const ADMIN_SMS_NUMBER = "+923000000000";
+    const ADMIN_SMS_NUMBER = "+923435356153";
 
-    // CATALOG: 18 PRODUCTS (Supports local images at images/products/...)
+    // Original prices shown with flat 50% discount applied
     const PRODUCTS = [
-      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
-      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 3, name: 'Oil Filled Radiator Heater 11 Fin', category: 'Winter Essentials', price: 18500, isWinter: true, img: 'images/products/heater-radiator.jpg', fallbackImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80' },
-      { id: 4, name: 'Infrared Carbon Fiber Tube Heater 1200W', category: 'Winter Essentials', price: 9200, isWinter: true, img: 'images/products/heater-infrared.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
-      { id: 5, name: 'Electric Instant Geyser Heating Element', category: 'Winter Essentials', price: 3400, isWinter: true, img: 'images/products/geyser-element.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', price: 3200, isWinter: true, img: 'images/products/thermostat.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
-      
-      { id: 7, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', price: 1200, isWinter: false, img: 'images/products/led-bulb-pack.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
-      { id: 8, name: 'High Bay Industrial LED Light 100W', category: 'Lighting', price: 6500, isWinter: false, img: 'images/products/led-highbay.jpg', fallbackImg: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=500&q=80' },
-      { id: 9, name: 'Outdoor Waterproof LED Floodlight 50W', category: 'Lighting', price: 2800, isWinter: false, img: 'images/products/led-floodlight.jpg', fallbackImg: 'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=500&q=80' },
-      { id: 10, name: 'Recessed Ceiling LED Panel Light 18W', category: 'Lighting', price: 950, isWinter: false, img: 'images/products/led-panel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
-      
-      { id: 11, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', price: 2100, isWinter: false, img: 'images/products/breaker-32a.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 12, name: 'Digital Over-Under Voltage Protector 63A', category: 'Safety', price: 2900, isWinter: false, img: 'images/products/voltage-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 13, name: 'Double Pole Main Switch Circuit Breaker', category: 'Safety', price: 1750, isWinter: false, img: 'images/products/main-switch.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 14, name: 'Surge Protector Spike Guard Strip', category: 'Safety', price: 2250, isWinter: false, img: 'images/products/surge-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      
-      { id: 15, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', price: 1850, isWinter: false, img: 'images/products/extension-5m.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 16, name: 'Universal Travel Adapter with Dual USB', category: 'Accessories', price: 1100, isWinter: false, img: 'images/products/travel-adapter.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 17, name: 'Multi-Socket Wall Distribution Box', category: 'Accessories', price: 1450, isWinter: false, img: 'images/products/socket-box.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 18, name: 'Heavy Duty Copper Cable Reel 10M', category: 'Accessories', price: 4200, isWinter: false, img: 'images/products/cable-reel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' }
+      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', originalPrice: 9000, price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
+      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', originalPrice: 15600, price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
+      { id: 3, name: 'Oil Filled Radiator Heater 11 Fin', category: 'Winter Essentials', originalPrice: 37000, price: 18500, isWinter: true, img: 'images/products/heater-radiator.jpg', fallbackImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80' },
+      { id: 4, name: 'Infrared Carbon Fiber Tube Heater 1200W', category: 'Winter Essentials', originalPrice: 18400, price: 9200, isWinter: true, img: 'images/products/heater-infrared.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
+      { id: 7, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', originalPrice: 2400, price: 1200, isWinter: false, img: 'images/products/led-bulb-pack.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
+      { id: 8, name: 'High Bay Industrial LED Light 100W', category: 'Lighting', originalPrice: 13000, price: 6500, isWinter: false, img: 'images/products/led-highbay.jpg', fallbackImg: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=500&q=80' },
+      { id: 11, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', originalPrice: 4200, price: 2100, isWinter: false, img: 'images/products/breaker-32a.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 15, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', originalPrice: 3700, price: 1850, isWinter: false, img: 'images/products/extension-5m.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' }
     ];
 
-    let cart = JSON.parse(localStorage.getItem('volt_cart')) || [];
-    let selectedCategory = 'All';
+    let cart = JSON.parse(localStorage.getItem('enafu_cart')) || [];
 
     const PAYMENT_ACCOUNTS = {
-      EasyPaisa: {
-        title: "EasyPaisa Mobile Wallet",
-        accountTitle: "Hamad Khan",
-        accountNo: "0300 0000000",
-        instruction: "Please send total order amount to this EasyPaisa account and keep transaction ID ready."
-      },
-      FastPay: {
-        title: "FastPay Direct Wallet",
-        accountTitle: "Hamad Khan",
-        accountNo: "0300 0000000",
-        instruction: "Transfer the amount using FastPay and save the transaction receipt."
-      },
-      Card: {
-        title: "Credit / Debit Card",
-        accountTitle: "VoltByHamad Accounts",
-        accountNo: "PK36 MEZN 0000 1234 5678 9012",
-        instruction: "Bank: Meezan Bank • IBAN provided above for online bank app transfer."
-      }
+      EasyPaisa: { title: "EasyPaisa Mobile Wallet", accountTitle: "Hamad Khan", accountNo: "0343 5356153", instruction: "Send total order amount to this EasyPaisa account." },
+      FastPay: { title: "FastPay Direct Wallet", accountTitle: "Hamad Khan", accountNo: "0343 5356153", instruction: "Transfer amount using FastPay and save receipt." },
+      Card: { title: "Credit / Debit Card / Meezan Bank", accountTitle: "Enafu Store Accounts", accountNo: "PK36 MEZN 0000 1234 5678 9012", instruction: "Bank: Meezan Bank • IBAN provided above for online bank app transfer." }
     };
 
-    function saveCart() {
-      localStorage.setItem('volt_cart', JSON.stringify(cart));
-    }
+    function saveCart() { localStorage.setItem('enafu_cart', JSON.stringify(cart)); }
+    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
 
-    // MOBILE MENU TOGGLE
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
-
-    // CATEGORY SELECTION
-    function setCategory(cat) {
-      selectedCategory = cat;
-      const buttons = document.querySelectorAll('.cat-btn');
-      buttons.forEach(btn => {
-        if (btn.innerText.trim() === cat) {
-          btn.className = 'cat-btn bg-brand-navy text-white px-3.5 py-2 rounded-xl text-xs font-bold transition';
-        } else {
-          btn.className = 'cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3.5 py-2 rounded-xl text-xs font-bold transition';
-        }
-      });
-      handleFilterChange();
-    }
-
-    // FILTER & SEARCH HANDLER
-    function handleFilterChange() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-
-      const filteredProducts = PRODUCTS.filter(p => {
-        const matchesCategory = (selectedCategory === 'All' || p.category === selectedCategory);
-        const matchesSearch = p.name.toLowerCase().includes(searchTerm) || p.category.toLowerCase().includes(searchTerm);
-        return matchesCategory && matchesSearch;
-      });
-
-      renderCatalog(filteredProducts);
-    }
-
-    // RENDER CATALOG GRID
-    function renderCatalog(itemsToRender) {
-      const allGrid = document.getElementById('productGrid');
-      allGrid.innerHTML = '';
-
-      if (itemsToRender.length === 0) {
-        allGrid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-xs">No products found.</div>`;
-        return;
+    function handleGlobalSearch(e) {
+      if (e.key === 'Enter') {
+        const query = e.target.value.trim();
+        if (query) window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
       }
-
-      itemsToRender.forEach(p => {
-        allGrid.innerHTML += `
-          <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
-            <div class="aspect-square bg-slate-100 relative overflow-hidden">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
-              ${p.isWinter ? '<span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">Winter</span>' : ''}
-            </div>
-            <div class="p-4 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">${p.category}</span>
-                <h3 class="font-bold text-xs text-brand-navy mt-1 leading-snug">${p.name}</h3>
-              </div>
-              <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
-                <span class="font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
-                <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3 py-1.5 rounded-lg text-[11px] transition">
-                  + Add
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
-      });
     }
 
-    // RENDER FEATURED WINTER PRODUCTS
-    function renderWinterFeatured() {
-      const winterGrid = document.getElementById('winterContainer');
-      winterGrid.innerHTML = '';
-
-      PRODUCTS.filter(p => p.isWinter).forEach(p => {
-        winterGrid.innerHTML += `
-          <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
-            <div class="aspect-square bg-slate-100 relative overflow-hidden">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
-              <span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">Winter</span>
-            </div>
-            <div class="p-4 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">${p.category}</span>
-                <h3 class="font-bold text-xs text-brand-navy mt-1 leading-snug">${p.name}</h3>
-              </div>
-              <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
-                <span class="font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
-                <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3 py-1.5 rounded-lg text-[11px] transition">
-                  + Add
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
-      });
+    function handleMobileGlobalSearch(e) {
+      if (e.key === 'Enter') {
+        const query = e.target.value.trim();
+        if (query) window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+      }
     }
 
-    // CART MANAGEMENT FUNCTIONS
-    function addToCart(productId) {
-      const item = cart.find(i => i.id === productId);
-      if (item) {
-        item.qty += 1;
-      } else {
-        const product = PRODUCTS.find(p => p.id === productId);
-        cart.push({ ...product, qty: 1 });
+    function renderFeaturedProducts() {
+      const grid = document.getElementById('featuredProductGrid');
+      grid.innerHTML = PRODUCTS.slice(0, 4).map(p => `
+        <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div class="aspect-square bg-slate-100 relative overflow-hidden">
+            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
+            <span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">50% OFF</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">${p.category}</span>
+              <h3 class="font-bold text-xs text-brand-navy mt-1 leading-snug">${p.name}</h3>
+            </div>
+            <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
+              <div>
+                <span class="text-[10px] text-slate-400 line-through">Rs. ${p.originalPrice.toLocaleString()}</span>
+                <span class="block font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
+              </div>
+              <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3 py-1.5 rounded-lg text-[11px] transition">+ Add</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const item = cart.find(i => i.id === id);
+      if (item) item.qty += 1;
+      else {
+        const prod = PRODUCTS.find(p => p.id === id);
+        cart.push({ ...prod, qty: 1 });
       }
       saveCart();
       updateCartUI();
       openCartDrawer();
     }
 
-    function updateQuantity(productId, change) {
-      const item = cart.find(i => i.id === productId);
+    function updateQuantity(id, change) {
+      const item = cart.find(i => i.id === id);
       if (!item) return;
-
       item.qty += change;
-      if (item.qty <= 0) {
-        cart = cart.filter(i => i.id !== productId);
-      }
+      if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
       saveCart();
       updateCartUI();
     }
 
-    function removeFromCart(productId) {
-      cart = cart.filter(i => i.id !== productId);
+    function removeFromCart(id) {
+      cart = cart.filter(i => i.id !== id);
       saveCart();
       updateCartUI();
     }
@@ -568,7 +525,6 @@
     function updateCartUI() {
       const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
       document.getElementById('cartBadge').innerText = totalItems;
       document.getElementById('cartSubtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
 
@@ -577,7 +533,6 @@
         container.innerHTML = `<div class="text-center py-12 text-slate-400 text-xs">Your cart is currently empty.</div>`;
         return;
       }
-
       container.innerHTML = cart.map(item => `
         <div class="pt-3 first:pt-0 flex items-center gap-3">
           <img src="${item.img}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover border border-slate-200" onerror="this.onerror=null; this.src='${item.fallbackImg}';">
@@ -595,12 +550,10 @@
       `).join('');
     }
 
-    // DRAWER TOGGLE
     function toggleCartDrawer() {
       const drawer = document.getElementById('cartDrawer');
       const overlay = document.getElementById('cartOverlay');
       const isOpen = !drawer.classList.contains('translate-x-full');
-
       if (isOpen) {
         drawer.classList.add('translate-x-full');
         overlay.classList.add('opacity-0', 'pointer-events-none');
@@ -613,19 +566,14 @@
     }
 
     function openCartDrawer() {
-      const drawer = document.getElementById('cartDrawer');
+      document.getElementById('cartDrawer').classList.remove('translate-x-full');
       const overlay = document.getElementById('cartOverlay');
-      drawer.classList.remove('translate-x-full');
       overlay.classList.remove('opacity-0', 'pointer-events-none');
       overlay.classList.add('opacity-100', 'pointer-events-auto');
     }
 
-    // CHECKOUT MODAL LOGIC
     function openCheckoutModal() {
-      if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
+      if (cart.length === 0) { alert('Your cart is empty!'); return; }
       toggleCartDrawer();
       const modal = document.getElementById('checkoutModal');
       modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -639,67 +587,49 @@
       modal.classList.remove('opacity-100', 'pointer-events-auto');
     }
 
-    // DYNAMIC PAYMENT DETAILS IN MODAL
     function handlePaymentMethodChange(method) {
-      const detailsBox = document.getElementById('transferDetailsBox');
-      
-      if (method === 'COD') {
-        detailsBox.classList.add('hidden');
-        return;
-      }
-
-      const account = PAYMENT_ACCOUNTS[method];
-      if (account) {
-        detailsBox.innerHTML = `
-          <h4 class="font-extrabold text-brand-navy">${account.title}</h4>
-          <p class="text-slate-600"><strong>Title:</strong> ${account.accountTitle}</p>
+      const box = document.getElementById('transferDetailsBox');
+      if (method === 'COD') { box.classList.add('hidden'); return; }
+      const acc = PAYMENT_ACCOUNTS[method];
+      if (acc) {
+        box.innerHTML = `
+          <h4 class="font-extrabold text-brand-navy">${acc.title}</h4>
+          <p class="text-slate-600"><strong>Title:</strong> ${acc.accountTitle}</p>
           <div class="flex items-center justify-between bg-white p-2 rounded-lg border border-slate-200">
-            <span class="font-mono font-bold text-brand-orange">${account.accountNo}</span>
-            <button type="button" onclick="navigator.clipboard.writeText('${account.accountNo}'); alert('Account number copied!');" class="text-[10px] bg-brand-navy text-white font-bold px-2 py-1 rounded hover:bg-brand-orange transition">
-              Copy
-            </button>
+            <span class="font-mono font-bold text-brand-orange">${acc.accountNo}</span>
+            <button type="button" onclick="navigator.clipboard.writeText('${acc.accountNo}'); alert('Account number copied!');" class="text-[10px] bg-brand-navy text-white font-bold px-2 py-1 rounded hover:bg-brand-orange transition">Copy</button>
           </div>
-          <p class="text-[10px] text-slate-500">${account.instruction}</p>
+          <p class="text-[10px] text-slate-500">${acc.instruction}</p>
         `;
-        detailsBox.classList.remove('hidden');
+        box.classList.remove('hidden');
       }
     }
 
-    // AUTO SMS PROCESSOR
     function processOrder(e) {
       e.preventDefault();
-
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const address = document.getElementById('custAddress').value.trim();
       const city = document.getElementById('custCity').value.trim();
       const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-      let itemsText = '';
-      let total = 0;
-
+      let itemsText = '', total = 0;
       cart.forEach((item, index) => {
         const itemTotal = item.price * item.qty;
         total += itemTotal;
         itemsText += `${index + 1}. ${item.name} (x${item.qty}) - Rs.${itemTotal} | `;
       });
 
-      const smsPayload = `ORDER - VoltByHamad\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city}\nPayment: ${paymentMethod}\nItems: ${itemsText}\nTotal: Rs.${total}`;
-
-      // Trigger direct SMS intent
+      const smsPayload = `ORDER - Enafu Store\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city}\nPayment: ${paymentMethod}\nItems: ${itemsText}\nTotal: Rs.${total}`;
       window.location.href = `sms:${ADMIN_SMS_NUMBER}?body=${encodeURIComponent(smsPayload)}`;
 
-      // Clear cart
       cart = [];
       saveCart();
       updateCartUI();
       closeCheckoutModal();
-      alert('Order submitted! Launching SMS application...');
     }
 
-    // INITIALIZATION
-    renderWinterFeatured();
-    renderCatalog(PRODUCTS);
+    renderFeaturedProducts();
     updateCartUI();
   </script>
 </body>
