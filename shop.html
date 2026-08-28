@@ -16,18 +16,8 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <style>
-    @keyframes floatPulse {
-      0% { transform: scale(1); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4); }
-      50% { transform: scale(1.08); box-shadow: 0 20px 30px -5px rgba(16, 185, 129, 0.6); }
-      100% { transform: scale(1); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4); }
-    }
-    .whatsapp-floating { animation: floatPulse 3s infinite ease-in-out; }
-  </style>
 </head>
 <body class="bg-white font-sans text-brand-slate antialiased">
-
-  <!-- HEADER -->
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       <a href="index.html" class="flex items-center gap-3">
@@ -44,85 +34,19 @@
         <button onclick="toggleCartDrawer()" class="p-2 bg-slate-100 rounded-xl relative flex items-center gap-2">
           🛒 <span id="cartBadge" class="bg-brand-orange text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
         </button>
-        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-100 text-brand-navy">☰</button>
-      </div>
-    </div>
-    <!-- MOBILE MENU DRAWER (Cleaned) -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-5 space-y-4 shadow-xl">
-      <div class="space-y-2 font-semibold text-sm text-slate-700">
-        <a href="index.html" class="block py-1">Home</a>
-        <a href="shop.html" class="block py-1 text-brand-orange font-bold">Shop Full Catalog</a>
-        <a href="about.html" class="block py-1">About Us</a>
-        <a href="contact.html" class="block py-1">Contact Support</a>
-      </div>
-      <div>
-        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Shop by Categories</span>
-        <div class="grid grid-cols-2 gap-2 text-xs font-bold text-brand-navy">
-          <a href="shop.html?cat=Smart+Living" class="p-2.5 bg-slate-50 rounded-xl">📡 Smart Living</a>
-          <a href="shop.html?cat=Lighting" class="p-2.5 bg-slate-50 rounded-xl">💡 Lighting</a>
-          <a href="shop.html?cat=Safety" class="p-2.5 bg-slate-50 rounded-xl">🛡️ Safety</a>
-          <a href="shop.html?cat=Accessories" class="p-2.5 bg-slate-50 rounded-xl">🔌 Accessories</a>
-        </div>
       </div>
     </div>
   </header>
 
-  <!-- CATALOG SECTION -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="text-3xl font-extrabold text-brand-navy mb-6">Full Product Catalog</h1>
     <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
   </main>
 
-  <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/923435356153" target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-500 text-white p-4 rounded-full shadow-2xl whatsapp-floating">💬</a>
-
-  <!-- CART & CHECKOUT -->
-  <div id="cartOverlay" class="fixed inset-0 bg-brand-navy/60 z-50 opacity-0 pointer-events-none transition-opacity" onclick="toggleCartDrawer()"></div>
-  <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform flex flex-col">
-    <div class="p-5 bg-brand-navy text-white flex justify-between"><h2 class="font-bold">Cart</h2><button onclick="toggleCartDrawer()">×</button></div>
-    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5"></div>
-    <div class="p-5 bg-brand-bgLight border-t"><button onclick="openCheckoutModal()" class="w-full bg-brand-orange text-white py-3 rounded-xl font-bold">Proceed to Checkout</button></div>
-  </div>
-
-  <div id="checkoutModal" class="fixed inset-0 bg-brand-navy/70 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 relative">
-      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 font-bold text-xl">×</button>
-      <h3 class="text-lg font-extrabold mb-4">Complete Order</h3>
-      <form onsubmit="processOrder(event)" class="space-y-4 text-xs">
-        <input type="text" id="custName" placeholder="Full Name" required class="w-full p-2.5 border rounded-xl">
-        <input type="tel" id="custPhone" placeholder="WhatsApp Number" required class="w-full p-2.5 border rounded-xl">
-        <input type="text" id="custAddress" placeholder="Address" required class="w-full p-2.5 border rounded-xl">
-        <input type="text" id="custCity" placeholder="City" required class="w-full p-2.5 border rounded-xl">
-        <button type="submit" class="w-full bg-brand-navy text-white py-3 rounded-xl font-extrabold uppercase">confirm your order</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
   <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div><span class="font-extrabold text-lg block mb-3">Enafu<span class="text-brand-orange">Store</span></span></div>
-      <div><h4 class="font-bold text-brand-orange mb-3">Customer Care</h4><p class="text-slate-400">WhatsApp: 0343-5356153</p></div>
-      <div><h4 class="font-bold text-brand-orange mb-3">Quick Links</h4><ul class="space-y-1 text-slate-400"><li><a href="shop.html">Shop Catalog</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-      <div><h4 class="font-bold text-brand-orange mb-3">Payments</h4><p class="text-slate-400">EasyPaisa / FastPay</p></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500">
+      <p>&copy; 2026 Enafu Store. All rights reserved.</p>
     </div>
-    <div class="text-center text-slate-500 pt-8 border-t border-white/10">&copy; 2026 Enafu Store. All rights reserved.</div>
   </footer>
-
-  <script>
-    const PRODUCTS = [
-      { id: 1, name: 'Smart WiFi Touch Socket 16A', category: 'Smart Living', price: 2000, img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 2, name: 'Mini DC UPS for WiFi Router 12V', category: 'Smart Living', price: 3500, img: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
-      { id: 3, name: 'Digital Air Inflator for Car & Bike', category: 'Smart Living', price: 4500, img: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 4, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', price: 1200, img: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' }
-    ];
-    let cart = JSON.parse(localStorage.getItem('enafu_cart')) || [];
-    function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
-    function toggleCartDrawer() { document.getElementById('cartDrawer').classList.toggle('translate-x-full'); document.getElementById('cartOverlay').classList.toggle('opacity-0'); document.getElementById('cartOverlay').classList.toggle('pointer-events-none'); }
-    function openCheckoutModal() { toggleCartDrawer(); document.getElementById('checkoutModal').classList.remove('opacity-0', 'pointer-events-none'); }
-    function closeCheckoutModal() { document.getElementById('checkoutModal').classList.add('opacity-0', 'pointer-events-none'); }
-    function processOrder(e) { e.preventDefault(); cart = []; localStorage.setItem('enafu_cart', JSON.stringify(cart)); alert('Order confirmed!'); location.reload(); }
-    document.getElementById('catalogGrid').innerHTML = PRODUCTS.map(p => `<div class="bg-white rounded-2xl border p-4 shadow-sm"><img src="${p.img}" class="w-full aspect-square object-cover rounded-xl mb-3"><h3 class="font-bold text-xs">${p.name}</h3><span class="text-brand-orange font-bold text-sm">Rs. ${p.price}</span><button onclick="cart.push({...PRODUCTS[0], qty:1});localStorage.setItem('enafu_cart', JSON.stringify(cart));alert('Added');" class="mt-3 w-full bg-brand-navy text-white py-2 rounded-lg text-xs font-bold">Add to Cart</button></div>`).join('');
-  </script>
 </body>
 </html>
