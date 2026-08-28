@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | ENAFU STORE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { navy: '#071A2B', orange: '#FF7A00', bgLight: '#F7F9FC', slate: '#334155', border: '#E2E8F0' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-brand-slate antialiased">
+  <header class="bg-white border-b border-brand-border sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="font-extrabold text-xl text-brand-navy">ENAFU <span class="text-brand-orange">STORE</span></span>
+      </a>
+      <nav class="flex gap-6 font-semibold text-xs text-slate-600">
+        <a href="index.html" class="hover:text-brand-navy">Shop</a>
+        <a href="about.html" class="text-brand-orange font-bold">About Us</a>
+        <a href="contact.html" class="hover:text-brand-navy">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="py-16 max-w-4xl mx-auto px-4">
+    <span class="text-brand-orange text-xs font-bold uppercase tracking-wider">OUR STORY</span>
+    <h1 class="text-3xl font-extrabold text-brand-navy mt-1 mb-6">Powering Homes Across Pakistan with Confidence</h1>
+    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+      ENAFU STORE provides tested, reliable, and durable domestic electrical essentials. We bridge the gap between quality manufacturing and daily home comfort.
+    </p>
+    <p class="text-slate-600 text-sm leading-relaxed mb-8">
+      From winter warmth solutions like ceramic heaters and electric blankets to energy-efficient LED lighting and heavy-duty power accessories, every item in our catalog is inspected for safety standards.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div class="p-5 border border-brand-border bg-brand-bgLight rounded-xl">
+        <h3 class="font-bold text-sm text-brand-navy mb-1">Certified Quality</h3>
+        <p class="text-xs text-slate-500">Rigorous safety testing for high voltage stability.</p>
+      </div>
+      <div class="p-5 border border-brand-border bg-brand-bgLight rounded-xl">
+        <h3 class="font-bold text-sm text-brand-navy mb-1">Fast Delivery</h3>
+        <p class="text-xs text-slate-500">Nationwide courier delivery with Cash on Delivery options.</p>
+      </div>
+      <div class="p-5 border border-brand-border bg-brand-bgLight rounded-xl">
+        <h3 class="font-bold text-sm text-brand-navy mb-1">Direct Support</h3>
+        <p class="text-xs text-slate-500">Dedicated assistance for technical queries and orders.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
