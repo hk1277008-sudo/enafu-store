@@ -55,12 +55,18 @@
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <!-- WORDMARK LOGO -->
+      <!-- WORDMARK LOGO (Supports local image fallback) -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
-          <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#FF7A00" stroke="#FF7A00" stroke-width="1"/>
-          </svg>
+        <div class="h-10 px-2 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
+          <!-- Put your logo at 'images/logo.png' -->
+          <img src="images/logo.png" alt="VoltByHamad Logo" class="h-7 w-auto object-contain onerror-hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          
+          <!-- Fallback SVG Icon if local image is missing -->
+          <div class="hidden items-center justify-center">
+            <svg class="w-6 h-6 text-brand-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#FF7A00" stroke="#FF7A00" stroke-width="1"/>
+            </svg>
+          </div>
         </div>
         <div class="flex flex-col">
           <span class="font-extrabold text-xl tracking-tight leading-none text-brand-navy">VoltBy<span class="text-brand-orange">Hamad</span></span>
@@ -85,7 +91,7 @@
           <span id="cartBadge" class="bg-brand-orange text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
         </button>
 
-        <!-- HAMBUGER MENU BUTTON -->
+        <!-- HAMBURGER MENU BUTTON -->
         <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-100 text-brand-navy hover:bg-slate-200 focus:outline-none" aria-label="Toggle Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -133,7 +139,7 @@
       <div class="relative animate-float">
         <div class="bg-white p-4 sm:p-6 rounded-3xl border border-brand-border shadow-xl relative">
           <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden relative shadow-inner">
-            <img id="heroImage" src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1000&q=80" alt="High Quality Room Heater" class="w-full h-full object-cover">
+            <img id="heroImage" src="images/hero-heater.jpg" alt="Quartz Radiant Room Heater" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1000&q=80';">
             <span class="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-md text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
               Featured Product
             </span>
@@ -236,7 +242,7 @@
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL (MULTI-PAYMENT & AUTO SMS) -->
+  <!-- CHECKOUT MODAL (DYNAMIC TRANSFER DETAILS & AUTO SMS) -->
   <div id="checkoutModal" class="fixed inset-0 bg-brand-navy/70 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative border border-brand-border">
       <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-navy font-bold text-2xl">&times;</button>
@@ -270,7 +276,7 @@
           <label class="block font-bold text-slate-700 mb-2">Select Payment Method *</label>
           <div class="grid grid-cols-2 gap-2.5">
             <label class="border border-brand-border rounded-xl p-3 flex items-center gap-2 cursor-pointer hover:bg-slate-50 transition">
-              <input type="radio" name="paymentMethod" value="COD" checked class="accent-brand-orange">
+              <input type="radio" name="paymentMethod" value="COD" checked onchange="handlePaymentMethodChange('COD')" class="accent-brand-orange">
               <div>
                 <span class="block font-bold text-brand-navy">Cash on Delivery</span>
                 <span class="text-[10px] text-slate-500">Pay at doorstep</span>
@@ -278,7 +284,7 @@
             </label>
 
             <label class="border border-brand-border rounded-xl p-3 flex items-center gap-2 cursor-pointer hover:bg-slate-50 transition">
-              <input type="radio" name="paymentMethod" value="EasyPaisa" class="accent-brand-orange">
+              <input type="radio" name="paymentMethod" value="EasyPaisa" onchange="handlePaymentMethodChange('EasyPaisa')" class="accent-brand-orange">
               <div>
                 <span class="block font-bold text-brand-navy">EasyPaisa</span>
                 <span class="text-[10px] text-slate-500">Mobile wallet</span>
@@ -286,7 +292,7 @@
             </label>
 
             <label class="border border-brand-border rounded-xl p-3 flex items-center gap-2 cursor-pointer hover:bg-slate-50 transition">
-              <input type="radio" name="paymentMethod" value="FastPay" class="accent-brand-orange">
+              <input type="radio" name="paymentMethod" value="FastPay" onchange="handlePaymentMethodChange('FastPay')" class="accent-brand-orange">
               <div>
                 <span class="block font-bold text-brand-navy">FastPay</span>
                 <span class="text-[10px] text-slate-500">Instant transfer</span>
@@ -294,13 +300,18 @@
             </label>
 
             <label class="border border-brand-border rounded-xl p-3 flex items-center gap-2 cursor-pointer hover:bg-slate-50 transition">
-              <input type="radio" name="paymentMethod" value="Card" class="accent-brand-orange">
+              <input type="radio" name="paymentMethod" value="Card" onchange="handlePaymentMethodChange('Card')" class="accent-brand-orange">
               <div>
                 <span class="block font-bold text-brand-navy">Credit / Debit Card</span>
                 <span class="text-[10px] text-slate-500">Visa / Mastercard</span>
               </div>
             </label>
           </div>
+        </div>
+
+        <!-- DYNAMIC TRANSFER DETAILS BOX -->
+        <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3">
+          <!-- Populated by JavaScript when EasyPaisa/FastPay selected -->
         </div>
 
         <button type="submit" class="w-full mt-4 bg-brand-navy hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
@@ -310,7 +321,7 @@
     </div>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON (DIRECT CHAT ICON ONLY) -->
+  <!-- FLOATING WHATSAPP BUTTON -->
   <a 
     href="https://wa.me/923000000000?text=Hello%20VoltByHamad,%20I%20have%20an%20inquiry%20about%20your%20products." 
     target="_blank" 
@@ -373,17 +384,54 @@
   <script>
     const ADMIN_SMS_NUMBER = "+923000000000";
 
+    // CATALOG: 18 PRODUCTS (Supports local images at images/products/...)
     const PRODUCTS = [
-      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', price: 4500, isWinter: true, img: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
-      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', price: 7800, isWinter: true, img: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
-      { id: 3, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', price: 1850, isWinter: false, img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
-      { id: 4, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', price: 1200, isWinter: true, img: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
-      { id: 5, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', price: 2100, isWinter: false, img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
-      { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', price: 3200, isWinter: true, img: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' }
+      { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
+      { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
+      { id: 3, name: 'Oil Filled Radiator Heater 11 Fin', category: 'Winter Essentials', price: 18500, isWinter: true, img: 'images/products/heater-radiator.jpg', fallbackImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80' },
+      { id: 4, name: 'Infrared Carbon Fiber Tube Heater 1200W', category: 'Winter Essentials', price: 9200, isWinter: true, img: 'images/products/heater-infrared.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
+      { id: 5, name: 'Electric Instant Geyser Heating Element', category: 'Winter Essentials', price: 3400, isWinter: true, img: 'images/products/geyser-element.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
+      { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', price: 3200, isWinter: true, img: 'images/products/thermostat.jpg', fallbackImg: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' },
+      
+      { id: 7, name: 'Smart Warm LED Bulb 12W Pack', category: 'Lighting', price: 1200, isWinter: false, img: 'images/products/led-bulb-pack.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
+      { id: 8, name: 'High Bay Industrial LED Light 100W', category: 'Lighting', price: 6500, isWinter: false, img: 'images/products/led-highbay.jpg', fallbackImg: 'https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=500&q=80' },
+      { id: 9, name: 'Outdoor Waterproof LED Floodlight 50W', category: 'Lighting', price: 2800, isWinter: false, img: 'images/products/led-floodlight.jpg', fallbackImg: 'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=500&q=80' },
+      { id: 10, name: 'Recessed Ceiling LED Panel Light 18W', category: 'Lighting', price: 950, isWinter: false, img: 'images/products/led-panel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=500&q=80' },
+      
+      { id: 11, name: 'Automatic Voltage Circuit Breaker 32A', category: 'Safety', price: 2100, isWinter: false, img: 'images/products/breaker-32a.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 12, name: 'Digital Over-Under Voltage Protector 63A', category: 'Safety', price: 2900, isWinter: false, img: 'images/products/voltage-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 13, name: 'Double Pole Main Switch Circuit Breaker', category: 'Safety', price: 1750, isWinter: false, img: 'images/products/main-switch.jpg', fallbackImg: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80' },
+      { id: 14, name: 'Surge Protector Spike Guard Strip', category: 'Safety', price: 2250, isWinter: false, img: 'images/products/surge-protector.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      
+      { id: 15, name: 'Heavy Duty Extension Power Board 5M', category: 'Accessories', price: 1850, isWinter: false, img: 'images/products/extension-5m.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 16, name: 'Universal Travel Adapter with Dual USB', category: 'Accessories', price: 1100, isWinter: false, img: 'images/products/travel-adapter.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 17, name: 'Multi-Socket Wall Distribution Box', category: 'Accessories', price: 1450, isWinter: false, img: 'images/products/socket-box.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' },
+      { id: 18, name: 'Heavy Duty Copper Cable Reel 10M', category: 'Accessories', price: 4200, isWinter: false, img: 'images/products/cable-reel.jpg', fallbackImg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80' }
     ];
 
     let cart = JSON.parse(localStorage.getItem('volt_cart')) || [];
     let selectedCategory = 'All';
+
+    const PAYMENT_ACCOUNTS = {
+      EasyPaisa: {
+        title: "EasyPaisa Mobile Wallet",
+        accountTitle: "Hamad Khan",
+        accountNo: "0300 0000000",
+        instruction: "Please send total order amount to this EasyPaisa account and keep transaction ID ready."
+      },
+      FastPay: {
+        title: "FastPay Direct Wallet",
+        accountTitle: "Hamad Khan",
+        accountNo: "0300 0000000",
+        instruction: "Transfer the amount using FastPay and save the transaction receipt."
+      },
+      Card: {
+        title: "Credit / Debit Card",
+        accountTitle: "VoltByHamad Accounts",
+        accountNo: "PK36 MEZN 0000 1234 5678 9012",
+        instruction: "Bank: Meezan Bank • IBAN provided above for online bank app transfer."
+      }
+    };
 
     function saveCart() {
       localStorage.setItem('volt_cart', JSON.stringify(cart));
@@ -436,7 +484,7 @@
         allGrid.innerHTML += `
           <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div class="aspect-square bg-slate-100 relative overflow-hidden">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
               ${p.isWinter ? '<span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">Winter</span>' : ''}
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
@@ -465,7 +513,7 @@
         winterGrid.innerHTML += `
           <div class="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div class="aspect-square bg-slate-100 relative overflow-hidden">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='${p.fallbackImg}';">
               <span class="absolute top-2.5 left-2.5 bg-brand-orange text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-md">Winter</span>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
@@ -532,7 +580,7 @@
 
       container.innerHTML = cart.map(item => `
         <div class="pt-3 first:pt-0 flex items-center gap-3">
-          <img src="${item.img}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover border border-slate-200">
+          <img src="${item.img}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover border border-slate-200" onerror="this.onerror=null; this.src='${item.fallbackImg}';">
           <div class="flex-1">
             <h4 class="font-bold text-xs text-brand-navy leading-snug">${item.name}</h4>
             <span class="text-[11px] text-slate-500">Rs. ${item.price.toLocaleString()}</span>
@@ -582,12 +630,39 @@
       const modal = document.getElementById('checkoutModal');
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modal.classList.add('opacity-100', 'pointer-events-auto');
+      handlePaymentMethodChange('COD');
     }
 
     function closeCheckoutModal() {
       const modal = document.getElementById('checkoutModal');
       modal.classList.add('opacity-0', 'pointer-events-none');
       modal.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+
+    // DYNAMIC PAYMENT DETAILS IN MODAL
+    function handlePaymentMethodChange(method) {
+      const detailsBox = document.getElementById('transferDetailsBox');
+      
+      if (method === 'COD') {
+        detailsBox.classList.add('hidden');
+        return;
+      }
+
+      const account = PAYMENT_ACCOUNTS[method];
+      if (account) {
+        detailsBox.innerHTML = `
+          <h4 class="font-extrabold text-brand-navy">${account.title}</h4>
+          <p class="text-slate-600"><strong>Title:</strong> ${account.accountTitle}</p>
+          <div class="flex items-center justify-between bg-white p-2 rounded-lg border border-slate-200">
+            <span class="font-mono font-bold text-brand-orange">${account.accountNo}</span>
+            <button type="button" onclick="navigator.clipboard.writeText('${account.accountNo}'); alert('Account number copied!');" class="text-[10px] bg-brand-navy text-white font-bold px-2 py-1 rounded hover:bg-brand-orange transition">
+              Copy
+            </button>
+          </div>
+          <p class="text-[10px] text-slate-500">${account.instruction}</p>
+        `;
+        detailsBox.classList.remove('hidden');
+      }
     }
 
     // AUTO SMS PROCESSOR
@@ -619,7 +694,7 @@
       saveCart();
       updateCartUI();
       closeCheckoutModal();
-      alert('Order placed successfully! Redirecting to SMS application...');
+      alert('Order submitted! Launching SMS application...');
     }
 
     // INITIALIZATION
