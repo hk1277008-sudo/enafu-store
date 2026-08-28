@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enafu Store | Premium Electrical, Lighting & Smart Living Essentials</title>
 
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -30,13 +31,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Animate.css for smooth entrance animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body class="bg-white font-sans text-brand-slate antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
+  <!-- HEADER -->
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
+      <!-- WORDMARK LOGO -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div class="h-10 px-2.5 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
           <img src="images/logo.png" alt="Enafu Store Logo" class="h-7 w-auto object-contain onerror-hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -52,6 +56,7 @@
         </div>
       </a>
 
+      <!-- DESKTOP SEARCH BAR -->
       <div class="hidden lg:flex items-center relative flex-1 max-w-md mx-6">
         <input 
           type="text" 
@@ -65,6 +70,7 @@
         </svg>
       </div>
 
+      <!-- DESKTOP NAVIGATION -->
       <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-700 text-xs tracking-wide">
         <a href="index.html" class="text-brand-orange font-bold">Home</a>
         <a href="shop.html" class="hover:text-brand-orange transition">Shop Catalog</a>
@@ -72,6 +78,7 @@
         <a href="contact.html" class="hover:text-brand-orange transition">Contact</a>
       </nav>
 
+      <!-- CART & MOBILE MENU BUTTONS -->
       <div class="flex items-center gap-3 text-slate-700">
         <button id="cartBtn" onclick="toggleCartDrawer()" class="hover:text-brand-navy p-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition relative flex items-center gap-2" aria-label="Cart">
           <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,6 +95,7 @@
       </div>
     </div>
 
+    <!-- MOBILE SEARCH BAR -->
     <div class="px-4 pb-3 lg:hidden">
       <div class="relative w-full">
         <input 
@@ -103,6 +111,7 @@
       </div>
     </div>
 
+    <!-- MOBILE MENU DRAWER -->
     <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-5 space-y-4 shadow-xl transition-all animate__animated animate__fadeIn">
       <div class="border-b border-slate-100 pb-3">
         <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Navigation Menu</span>
@@ -131,14 +140,10 @@
           </a>
         </div>
       </div>
-
-      <div class="pt-2 border-t border-slate-100 text-[11px] text-slate-500 flex flex-col gap-1">
-        <span>💬 WhatsApp Support: 0343-5356153</span>
-        <span>✉️ Email: enafu.store@gmail.com</span>
-      </div>
     </div>
   </header>
 
+  <!-- HERO SECTION -->
   <section class="relative bg-brand-navy text-white py-20 lg:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FF7A00_1px,transparent_1px)] [background-size:16px_16px]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -161,6 +166,7 @@
     </div>
   </section>
 
+  <!-- FEATURED CATEGORIES SECTION -->
   <section class="py-16 bg-brand-bgLight">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
@@ -199,35 +205,24 @@
     </div>
   </section>
 
+  <!-- BEST SELLING PRODUCTS PREVIEW -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="bg-brand-bgLight border border-brand-border rounded-2xl p-6 sm:p-8 mb-12 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
-        <div>
-          <span class="text-brand-orange text-[10px] font-extrabold uppercase tracking-widest block mb-1">Enafu Premium Standards</span>
-          <h3 class="text-lg sm:text-xl font-extrabold text-brand-navy">Explore More Premium Electrical Products</h3>
-          <p class="text-xs text-slate-500 mt-1">Discover certified household solutions built for maximum efficiency and durability.</p>
-        </div>
-        <a href="shop.html" class="w-full sm:w-auto text-center bg-brand-navy hover:bg-brand-orange text-white font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md shrink-0">
-          Explore More Premium &rarr;
-        </a>
-      </div>
-
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
         <div>
           <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">Top Picks</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-1">Best Sellers</h2>
         </div>
-        <a href="shop.html" class="sm:hidden w-full text-center bg-slate-100 hover:bg-brand-orange hover:text-white text-brand-navy font-bold py-3 rounded-xl text-xs transition uppercase tracking-wider">
-          Explore All Store &rarr;
-        </a>
       </div>
 
       <div id="featuredProductGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        </div>
+        <!-- Dynamically loaded best sellers -->
+      </div>
     </div>
   </section>
 
+  <!-- TRUSTED ICONS SECTION (White background with verified genuine line icons) -->
   <section class="py-12 bg-white border-t border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
@@ -276,6 +271,7 @@
     </div>
   </section>
 
+  <!-- SLIDE-OVER CART DRAWER -->
   <div id="cartOverlay" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCartDrawer()"></div>
 
   <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -304,6 +300,7 @@
     </div>
   </div>
 
+  <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="fixed inset-0 bg-brand-navy/70 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative border border-brand-border">
       <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-navy font-bold text-2xl">&times;</button>
@@ -332,6 +329,7 @@
           <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad, Lahore" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
+        <!-- PAYMENT METHODS -->
         <div class="pt-2">
           <label class="block font-bold text-slate-700 mb-2">Select Payment Method *</label>
           <div class="grid grid-cols-2 gap-2.5">
@@ -369,21 +367,24 @@
           </div>
         </div>
 
+        <!-- DYNAMIC TRANSFER DETAILS BOX -->
         <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3"></div>
 
         <button type="submit" class="w-full mt-4 bg-brand-navy hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
-          Confirm Order
+          confirm your order
         </button>
       </form>
     </div>
   </div>
 
+  <!-- DIRECT WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/923435356153?text=Hello%20Enafu%20Store,%20I%20want%20to%20inquire%20about%20electrical%20products." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110" aria-label="WhatsApp Support">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
   </a>
 
+  <!-- FOOTER -->
   <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div>
@@ -398,7 +399,6 @@
       <div>
         <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-brand-orange">Customer Care</h4>
         <p class="text-slate-400 text-[11px] mb-1">WhatsApp: 0343-5356153</p>
-        <p class="text-slate-400 text-[11px]">Email: enafu.store@gmail.com</p>
       </div>
 
       <div>
@@ -434,6 +434,7 @@
     </div>
   </footer>
 
+  <!-- SCRIPT LOGIC -->
   <script>
     const ADMIN_SMS_NUMBER = "+923435356153";
 
@@ -630,18 +631,15 @@
       });
       orderSummary += `\nTotal Subtotal: Rs. ${subtotal.toLocaleString()}`;
 
-      // Clear Cart & Close Modal
       cart = [];
       saveCart();
       updateCartUI();
       closeCheckoutModal();
 
-      // Redirect to WhatsApp with order details
       const encodedMessage = encodeURIComponent(orderSummary);
       window.open(`https://wa.me/923435356153?text=${encodedMessage}`, '_blank');
     }
 
-    // Initialize UI on load
     document.addEventListener('DOMContentLoaded', () => {
       renderFeaturedProducts();
       updateCartUI();
