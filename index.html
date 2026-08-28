@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enafu Store | Premium Electrical, Lighting & Winter Heating Essentials</title>
 
-  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,21 +30,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Animate.css for smooth entrance animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body class="bg-white font-sans text-brand-slate antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
-  <!-- TOP ANNOUNCEMENT BAR -->
   <div class="bg-brand-navy text-white text-[11px] font-semibold tracking-wider uppercase py-2.5 px-4 text-center border-b border-white/10 flex items-center justify-center gap-2">
     <span>⚡ FLAT 50% OFF THIS WINTER • FREE DELIVERY ALL OVER PAKISTAN ⚡</span>
   </div>
 
-  <!-- HEADER -->
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <!-- WORDMARK LOGO -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div class="h-10 px-2.5 rounded-xl bg-brand-navy flex items-center justify-center border border-brand-navy/10 shadow-md group-hover:scale-105 transition duration-300">
           <img src="images/logo.png" alt="Enafu Store Logo" class="h-7 w-auto object-contain onerror-hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -61,7 +56,6 @@
         </div>
       </a>
 
-      <!-- DESKTOP SEARCH BAR -->
       <div class="hidden lg:flex items-center relative flex-1 max-w-md mx-6">
         <input 
           type="text" 
@@ -75,7 +69,6 @@
         </svg>
       </div>
 
-      <!-- DESKTOP NAVIGATION -->
       <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-700 text-xs tracking-wide">
         <a href="index.html" class="text-brand-orange font-bold">Home</a>
         <a href="shop.html" class="hover:text-brand-orange transition">Shop Catalog</a>
@@ -83,7 +76,6 @@
         <a href="contact.html" class="hover:text-brand-orange transition">Contact</a>
       </nav>
 
-      <!-- CART & MOBILE MENU BUTTONS -->
       <div class="flex items-center gap-3 text-slate-700">
         <button id="cartBtn" onclick="toggleCartDrawer()" class="hover:text-brand-navy p-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition relative flex items-center gap-2" aria-label="Cart">
           <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +92,6 @@
       </div>
     </div>
 
-    <!-- MOBILE SEARCH BAR -->
     <div class="px-4 pb-3 lg:hidden">
       <div class="relative w-full">
         <input 
@@ -116,7 +107,6 @@
       </div>
     </div>
 
-    <!-- MOBILE MENU DRAWER (Amazon / Walmart Style with Categories) -->
     <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-brand-border px-6 py-5 space-y-4 shadow-xl transition-all animate__animated animate__fadeIn">
       <div class="border-b border-slate-100 pb-3">
         <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Navigation Menu</span>
@@ -153,7 +143,6 @@
     </div>
   </header>
 
-  <!-- HERO SECTION WITH FLAT 50% OFF -->
   <section class="relative bg-brand-navy text-white py-20 lg:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FF7A00_1px,transparent_1px)] [background-size:16px_16px]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -179,7 +168,6 @@
     </div>
   </section>
 
-  <!-- FEATURED CATEGORIES SECTION (Amazon / Walmart Style) -->
   <section class="py-16 bg-brand-bgLight">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
@@ -218,7 +206,6 @@
     </div>
   </section>
 
-  <!-- BEST SELLING PRODUCTS PREVIEW -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
@@ -230,12 +217,10 @@
       </div>
 
       <div id="featuredProductGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamically loaded best sellers -->
-      </div>
+        </div>
     </div>
   </section>
 
-  <!-- TRUSTED ICONS SECTION (Above Footer in Separate Section) -->
   <section class="py-12 bg-slate-900 text-white border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
@@ -257,7 +242,7 @@
 
         <div class="flex items-center gap-4 justify-center sm:justify-start">
           <div class="w-12 h-12 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center text-xl shrink-0">🛡️</div>
-            <div>
+          <div>
             <h4 class="font-bold text-xs">Verified Electrical Quality</h4>
             <p class="text-[11px] text-slate-400 mt-0.5">Tested for safety and performance</p>
           </div>
@@ -274,7 +259,6 @@
     </div>
   </section>
 
-  <!-- SLIDE-OVER CART DRAWER -->
   <div id="cartOverlay" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCartDrawer()"></div>
 
   <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -303,7 +287,6 @@
     </div>
   </div>
 
-  <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="fixed inset-0 bg-brand-navy/70 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative border border-brand-border">
       <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-brand-navy font-bold text-2xl">&times;</button>
@@ -332,7 +315,6 @@
           <input type="text" id="custCity" required placeholder="e.g. Peshawar, Islamabad, Lahore" class="w-full bg-slate-50 border border-brand-border rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-navy">
         </div>
 
-        <!-- PAYMENT METHODS -->
         <div class="pt-2">
           <label class="block font-bold text-slate-700 mb-2">Select Payment Method *</label>
           <div class="grid grid-cols-2 gap-2.5">
@@ -370,7 +352,6 @@
           </div>
         </div>
 
-        <!-- DYNAMIC TRANSFER DETAILS BOX -->
         <div id="transferDetailsBox" class="hidden bg-slate-50 border border-brand-orange/30 rounded-2xl p-4 space-y-2 mt-3"></div>
 
         <button type="submit" class="w-full mt-4 bg-brand-navy hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs transition shadow-md">
@@ -380,14 +361,12 @@
     </div>
   </div>
 
-  <!-- DIRECT WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/923435356153?text=Hello%20Enafu%20Store,%20I%20want%20to%20inquire%20about%20electrical%20products." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110" aria-label="WhatsApp Support">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
   </a>
 
-  <!-- FOOTER WITH MEEZAN BANK & CONTACT INFO -->
   <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div>
@@ -429,11 +408,9 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC (Flat 50% Off Calculation & SMS Direct Integration) -->
   <script>
     const ADMIN_SMS_NUMBER = "+923435356153";
 
-    // Original prices shown with flat 50% discount applied
     const PRODUCTS = [
       { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', originalPrice: 9000, price: 4500, isWinter: true, img: 'images/products/heater-quartz.jpg', fallbackImg: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
       { id: 2, name: 'PTC Ceramic Blower Heater 1500W', category: 'Winter Essentials', originalPrice: 15600, price: 7800, isWinter: true, img: 'images/products/heater-blower.jpg', fallbackImg: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80' },
@@ -500,108 +477,113 @@
       if (item) item.qty += 1;
       else {
         const prod = PRODUCTS.find(p => p.id === id);
-        cart.push({ ...prod, qty: 1 });
+        if (prod) cart.push({ ...prod, qty: 1 });
       }
       saveCart();
       updateCartUI();
-      openCartDrawer();
+      toggleCartDrawer();
     }
 
-    function updateQuantity(id, change) {
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartBadge').innerText = totalCount;
+
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = `<div class="text-center py-12 text-slate-400 text-xs">Your cart is currently empty.</div>`;
+        document.getElementById('cartSubtotal').innerText = 'Rs. 0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = cart.map(item => {
+        subtotal += item.price * item.qty;
+        return `
+          <div class="py-3 flex items-center gap-3">
+            <img src="${item.img}" onerror="this.src='${item.fallbackImg}'" alt="${item.name}" class="w-14 h-14 object-cover rounded-xl border border-brand-border shrink-0">
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-xs text-brand-navy truncate">${item.name}</h4>
+              <span class="text-[11px] text-brand-orange font-bold">Rs. ${item.price.toLocaleString()}</span>
+              <div class="flex items-center gap-2 mt-1">
+                <button onclick="updateQty(${item.id}, ${item.qty - 1})" class="w-5 h-5 bg-slate-100 rounded text-xs font-bold hover:bg-slate-200">-</button>
+                <span class="text-xs font-bold">${item.qty}</span>
+                <button onclick="updateQty(${item.id}, ${item.qty + 1})" class="w-5 h-5 bg-slate-100 rounded text-xs font-bold hover:bg-slate-200">+</button>
+              </div>
+            </div>
+            <button onclick="removeItem(${item.id})" class="text-slate-400 hover:text-red-500 font-bold text-sm px-2">&times;</button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cartSubtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
+    }
+
+    function updateQty(id, qty) {
+      if (qty <= 0) {
+        removeItem(id);
+        return;
+      }
       const item = cart.find(i => i.id === id);
-      if (!item) return;
-      item.qty += change;
-      if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
-      saveCart();
-      updateCartUI();
+      if (item) {
+        item.qty = qty;
+        saveCart();
+        updateCartUI();
+      }
     }
 
-    function removeFromCart(id) {
+    function removeItem(id) {
       cart = cart.filter(i => i.id !== id);
       saveCart();
       updateCartUI();
     }
 
-    function updateCartUI() {
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      document.getElementById('cartBadge').innerText = totalItems;
-      document.getElementById('cartSubtotal').innerText = `Rs. ${subtotal.toLocaleString()}`;
-
-      const container = document.getElementById('cartItemsContainer');
-      if (cart.length === 0) {
-        container.innerHTML = `<div class="text-center py-12 text-slate-400 text-xs">Your cart is currently empty.</div>`;
-        return;
-      }
-      container.innerHTML = cart.map(item => `
-        <div class="pt-3 first:pt-0 flex items-center gap-3">
-          <img src="${item.img}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover border border-slate-200" onerror="this.onerror=null; this.src='${item.fallbackImg}';">
-          <div class="flex-1">
-            <h4 class="font-bold text-xs text-brand-navy leading-snug">${item.name}</h4>
-            <span class="text-[11px] text-slate-500">Rs. ${item.price.toLocaleString()}</span>
-            <div class="flex items-center gap-2 mt-2">
-              <button onclick="updateQuantity(${item.id}, -1)" class="w-5 h-5 bg-slate-200 hover:bg-slate-300 rounded text-xs font-bold flex items-center justify-center">-</button>
-              <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
-              <button onclick="updateQuantity(${item.id}, 1)" class="w-5 h-5 bg-slate-200 hover:bg-slate-300 rounded text-xs font-bold flex items-center justify-center">+</button>
-            </div>
-          </div>
-          <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-red-500 text-sm font-bold px-1">&times;</button>
-        </div>
-      `).join('');
-    }
-
     function toggleCartDrawer() {
       const drawer = document.getElementById('cartDrawer');
       const overlay = document.getElementById('cartOverlay');
-      const isOpen = !drawer.classList.contains('translate-x-full');
+      const isOpen = drawer.classList.contains('translate-x-full');
+      
       if (isOpen) {
-        drawer.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        overlay.classList.remove('opacity-100', 'pointer-events-auto');
-      } else {
         drawer.classList.remove('translate-x-full');
         overlay.classList.remove('opacity-0', 'pointer-events-none');
-        overlay.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
       }
     }
 
-    function openCartDrawer() {
-      document.getElementById('cartDrawer').classList.remove('translate-x-full');
-      const overlay = document.getElementById('cartOverlay');
-      overlay.classList.remove('opacity-0', 'pointer-events-none');
-      overlay.classList.add('opacity-100', 'pointer-events-auto');
-    }
-
     function openCheckoutModal() {
-      if (cart.length === 0) { alert('Your cart is empty!'); return; }
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
       toggleCartDrawer();
       const modal = document.getElementById('checkoutModal');
       modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.classList.add('opacity-100', 'pointer-events-auto');
-      handlePaymentMethodChange('COD');
     }
 
     function closeCheckoutModal() {
       const modal = document.getElementById('checkoutModal');
       modal.classList.add('opacity-0', 'pointer-events-none');
-      modal.classList.remove('opacity-100', 'pointer-events-auto');
     }
 
     function handlePaymentMethodChange(method) {
       const box = document.getElementById('transferDetailsBox');
-      if (method === 'COD') { box.classList.add('hidden'); return; }
-      const acc = PAYMENT_ACCOUNTS[method];
-      if (acc) {
-        box.innerHTML = `
-          <h4 class="font-extrabold text-brand-navy">${acc.title}</h4>
-          <p class="text-slate-600"><strong>Title:</strong> ${acc.accountTitle}</p>
-          <div class="flex items-center justify-between bg-white p-2 rounded-lg border border-slate-200">
-            <span class="font-mono font-bold text-brand-orange">${acc.accountNo}</span>
-            <button type="button" onclick="navigator.clipboard.writeText('${acc.accountNo}'); alert('Account number copied!');" class="text-[10px] bg-brand-navy text-white font-bold px-2 py-1 rounded hover:bg-brand-orange transition">Copy</button>
-          </div>
-          <p class="text-[10px] text-slate-500">${acc.instruction}</p>
-        `;
-        box.classList.remove('hidden');
+      if (method === 'COD') {
+        box.classList.add('hidden');
+        box.innerHTML = '';
+      } else {
+        const acc = PAYMENT_ACCOUNTS[method];
+        if (acc) {
+          box.classList.remove('hidden');
+          box.innerHTML = `
+            <span class="font-bold text-brand-navy block">${acc.title}</span>
+            <p class="text-[11px] text-slate-600">${acc.instruction}</p>
+            <div class="mt-2 pt-2 border-t border-brand-orange/20 text-[11px]">
+              <span class="block text-slate-500">Account Title: <strong class="text-brand-navy">${acc.accountTitle}</strong></span>
+              <span class="block text-slate-500">Account / IBAN: <strong class="text-brand-navy">${acc.accountNo}</strong></span>
+            </div>
+          `;
+        }
       }
     }
 
@@ -613,24 +595,34 @@
       const city = document.getElementById('custCity').value.trim();
       const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-      let itemsText = '', total = 0;
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        itemsText += `${index + 1}. ${item.name} (x${item.qty}) - Rs.${itemTotal} | `;
+      let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      
+      let orderSummary = `New Order - Enafu Store\n`;
+      orderSummary += `Customer: ${name}\n`;
+      orderSummary += `Phone: ${phone}\n`;
+      orderSummary += `Address: ${address}, ${city}\n`;
+      orderSummary += `Payment: ${paymentMethod}\n\nItems:\n`;
+      cart.forEach(i => {
+        orderSummary += `- ${i.name} (Qty: ${i.qty}) - Rs. ${(i.price * i.qty).toLocaleString()}\n`;
       });
+      orderSummary += `\nTotal Subtotal (50% OFF): Rs. ${subtotal.toLocaleString()}`;
 
-      const smsPayload = `ORDER - Enafu Store\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city}\nPayment: ${paymentMethod}\nItems: ${itemsText}\nTotal: Rs.${total}`;
-      window.location.href = `sms:${ADMIN_SMS_NUMBER}?body=${encodeURIComponent(smsPayload)}`;
-
+      // Clear Cart & Close Modal
       cart = [];
       saveCart();
       updateCartUI();
       closeCheckoutModal();
+
+      // Redirect to WhatsApp with order details
+      const encodedMessage = encodeURIComponent(orderSummary);
+      window.open(`https://wa.me/923435356153?text=${encodedMessage}`, '_blank');
     }
 
-    renderFeaturedProducts();
-    updateCartUI();
+    // Initialize UI on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFeaturedProducts();
+      updateCartUI();
+    });
   </script>
 </body>
 </html>
