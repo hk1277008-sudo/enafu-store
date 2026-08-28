@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | ENAFU STORE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { navy: '#071A2B', orange: '#FF7A00', bgLight: '#F7F9FC', slate: '#334155', border: '#E2E8F0' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-brand-slate antialiased">
+  <header class="bg-white border-b border-brand-border sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="font-extrabold text-xl text-brand-navy">ENAFU <span class="text-brand-orange">STORE</span></span>
+      </a>
+      <nav class="flex gap-6 font-semibold text-xs text-slate-600">
+        <a href="index.html" class="hover:text-brand-navy">Shop</a>
+        <a href="about.html" class="hover:text-brand-navy">About Us</a>
+        <a href="contact.html" class="text-brand-orange font-bold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="py-16 max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+    <div>
+      <span class="text-brand-orange text-xs font-bold uppercase tracking-wider">GET IN TOUCH</span>
+      <h1 class="text-3xl font-extrabold text-brand-navy mt-1 mb-4">Customer Support</h1>
+      <p class="text-slate-600 text-xs mb-8">Have a question about an order or product specs? Send us a message.</p>
+
+      <div class="space-y-4 text-xs font-semibold text-slate-700">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded bg-brand-bgLight flex items-center justify-center border border-brand-border">📍</span>
+          <span>Khyber Pakhtunkhwa, Pakistan</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded bg-brand-bgLight flex items-center justify-center border border-brand-border">✉️</span>
+          <span>support@enafustore.com</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded bg-brand-bgLight flex items-center justify-center border border-brand-border">📞</span>
+          <span>+92 300 0000000</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="bg-brand-bgLight p-6 rounded-xl border border-brand-border space-y-4">
+      <div>
+        <label class="block text-xs font-bold text-brand-navy mb-1">Full Name</label>
+        <input type="text" class="w-full p-2.5 border border-brand-border rounded-lg text-xs" placeholder="Your Name" required>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-brand-navy mb-1">Phone Number</label>
+        <input type="tel" class="w-full p-2.5 border border-brand-border rounded-lg text-xs" placeholder="03xx xxxxxxx" required>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-brand-navy mb-1">Message</label>
+        <textarea rows="4" class="w-full p-2.5 border border-brand-border rounded-lg text-xs" placeholder="How can we help?" required></textarea>
+      </div>
+      <button type="submit" class="w-full bg-brand-orange text-white font-bold py-2.5 rounded-lg text-xs hover:bg-orange-600 transition">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
