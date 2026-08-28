@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,38 +15,38 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white font-sans text-brand-slate antialiased">
+<body class="bg-brand-bgLight font-sans text-brand-slate antialiased">
+
+  <!-- HEADER -->
   <header class="bg-white/90 backdrop-blur-md border-b border-brand-border sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       <a href="index.html" class="flex items-center gap-3">
-        <div class="h-10 px-2.5 rounded-xl bg-brand-navy flex items-center justify-center text-brand-orange font-bold text-lg">E</div>
+        <div class="h-10 px-2.5 rounded-xl bg-brand-navy flex items-center justify-center shadow-md">
+          <span class="text-brand-orange font-extrabold text-xl">E</span>
+        </div>
         <span class="font-extrabold text-xl text-brand-navy">Enafu<span class="text-brand-orange">Store</span></span>
       </a>
-      <nav class="hidden md:flex items-center gap-7 font-semibold text-slate-700 text-xs">
-        <a href="index.html" class="hover:text-brand-orange">Home</a>
-        <a href="shop.html" class="text-brand-orange font-bold">Shop Catalog</a>
-        <a href="about.html" class="hover:text-brand-orange">About Us</a>
-        <a href="contact.html" class="hover:text-brand-orange">Contact</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <button onclick="toggleCartDrawer()" class="p-2 bg-slate-100 rounded-xl relative flex items-center gap-2">
-          🛒 <span id="cartBadge" class="bg-brand-orange text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
-        </button>
+      <div class="flex-1 max-w-md mx-6">
+        <input type="text" id="globalSearch" oninput="filterCatalog()" placeholder="Search 13 products..." class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-brand-navy" />
       </div>
+      <a href="cart.html" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl relative flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span id="cartBadge" class="bg-brand-orange text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+      </a>
     </div>
   </header>
 
+  <!-- CATALOG GRID -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-3xl font-extrabold text-brand-navy mb-6">Full Product Catalog</h1>
-    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    <div class="mb-8">
+      <span class="text-brand-orange text-xs font-bold uppercase tracking-wider">Full Inventory</span>
+      <h1 class="text-3xl font-extrabold text-brand-navy mt-1">Smart Electrical & Home Catalog</h1>
+    </div>
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
   </main>
 
-  <footer class="bg-brand-navy text-white py-12 border-t border-brand-border text-xs mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500">
-      <p>&copy; 2026 Enafu Store. All rights reserved.</p>
-    </div>
-  </footer>
+  <script src="shop-data.js"></script>
 </body>
 </html>
