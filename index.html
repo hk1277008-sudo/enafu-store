@@ -131,17 +131,47 @@
     </div>
   </section>
 
-  <!-- ALL PRODUCTS GRID -->
+  <!-- ALL PRODUCTS CATALOG & FILTERS -->
   <section id="shop" class="py-16 bg-brand-bgLight">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
+      
+      <!-- Catalog Header -->
+      <div class="mb-8">
         <span class="text-brand-orange text-[11px] font-bold uppercase tracking-wider">FULL CATALOG</span>
-        <h2 class="text-2xl font-extrabold text-brand-navy mt-1">All Electrical Products</h2>
+        <h2 class="text-2xl font-extrabold text-brand-navy mt-1">Browse All Products</h2>
       </div>
 
+      <!-- SEARCH & CATEGORY FILTER CONTROL BAR -->
+      <div class="bg-white p-4 rounded-xl border border-brand-border shadow-sm mb-8 flex flex-col md:flex-row gap-4 justify-between items-center">
+        <!-- Search Input -->
+        <div class="relative w-full md:w-80">
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleFilterChange()" 
+            placeholder="Search heaters, bulbs, switches..." 
+            class="w-full bg-slate-50 border border-brand-border rounded-lg pl-9 pr-4 py-2 text-xs text-slate-800 focus:outline-none focus:border-brand-navy"
+          />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div id="categoryFilters" class="flex flex-wrap gap-2 w-full md:w-auto">
+          <button onclick="setCategory('All')" class="cat-btn bg-brand-navy text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">All</button>
+          <button onclick="setCategory('Winter Essentials')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition">Winter Essentials</button>
+          <button onclick="setCategory('Lighting')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition">Lighting</button>
+          <button onclick="setCategory('Safety')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition">Safety</button>
+          <button onclick="setCategory('Accessories')" class="cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition">Accessories</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT GRID -->
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Dynamic products loaded here -->
       </div>
+      
     </div>
   </section>
 
@@ -149,7 +179,6 @@
   <div id="cartOverlay" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCartDrawer()"></div>
 
   <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-    <!-- Drawer Header -->
     <div class="p-5 bg-brand-navy text-white flex items-center justify-between border-b border-slate-700">
       <div class="flex items-center gap-2">
         <svg class="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
@@ -158,14 +187,12 @@
       <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white p-1 text-lg font-bold">&times;</button>
     </div>
 
-    <!-- Drawer Items List -->
     <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4 divide-y divide-slate-100">
       <div class="text-center py-12 text-slate-400 text-xs">
         Your cart is currently empty.
       </div>
     </div>
 
-    <!-- Drawer Footer -->
     <div class="p-5 bg-brand-bgLight border-t border-brand-border space-y-4">
       <div class="flex justify-between items-center text-sm">
         <span class="font-bold text-brand-navy">Subtotal</span>
@@ -209,7 +236,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT WITH SEARCH & FILTER LOGIC -->
   <script>
     const PRODUCTS = [
       { id: 1, name: 'Quartz Radiant Room Heater 800W', category: 'Winter Essentials', price: 4500, isWinter: true, img: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=500&q=80' },
@@ -220,18 +247,59 @@
       { id: 6, name: 'Digital Wall Thermostat Control Switch', category: 'Winter Essentials', price: 3200, isWinter: true, img: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=500&q=80' }
     ];
 
-    let cart = [];
+    let cart = JSON.parse(localStorage.getItem('enafu_cart')) || [];
+    let selectedCategory = 'All';
 
-    // RENDER PRODUCTS
-    function renderProducts() {
-      const winterGrid = document.getElementById('winterContainer');
+    function saveCart() {
+      localStorage.setItem('enafu_cart', JSON.stringify(cart));
+    }
+
+    // CATEGORY SELECTION
+    function setCategory(cat) {
+      selectedCategory = cat;
+      
+      // Update UI button styling
+      const buttons = document.querySelectorAll('.cat-btn');
+      buttons.forEach(btn => {
+        if (btn.innerText.trim() === cat) {
+          btn.className = 'cat-btn bg-brand-navy text-white px-3 py-1.5 rounded-lg text-xs font-bold transition';
+        } else {
+          btn.className = 'cat-btn bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold transition';
+        }
+      });
+
+      handleFilterChange();
+    }
+
+    // FILTER & SEARCH HANDLER
+    function handleFilterChange() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+      const filteredProducts = PRODUCTS.filter(p => {
+        const matchesCategory = (selectedCategory === 'All' || p.category === selectedCategory);
+        const matchesSearch = p.name.toLowerCase().includes(searchTerm) || p.category.toLowerCase().includes(searchTerm);
+        return matchesCategory && matchesSearch;
+      });
+
+      renderCatalog(filteredProducts);
+    }
+
+    // RENDER CATALOG GRID
+    function renderCatalog(itemsToRender) {
       const allGrid = document.getElementById('productGrid');
-
-      winterGrid.innerHTML = '';
       allGrid.innerHTML = '';
 
-      PRODUCTS.forEach(p => {
-        const cardHtml = `
+      if (itemsToRender.length === 0) {
+        allGrid.innerHTML = `
+          <div class="col-span-full text-center py-12 text-slate-400 text-xs">
+            No products found matching your criteria.
+          </div>
+        `;
+        return;
+      }
+
+      itemsToRender.forEach(p => {
+        allGrid.innerHTML += `
           <div class="bg-white rounded-xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
             <div class="aspect-square bg-slate-100 relative overflow-hidden">
               <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
@@ -251,13 +319,39 @@
             </div>
           </div>
         `;
-
-        if (p.isWinter) winterGrid.innerHTML += cardHtml;
-        allGrid.innerHTML += cardHtml;
       });
     }
 
-    // CART MANAGEMENT
+    // RENDER FEATURED WINTER PRODUCTS
+    function renderWinterFeatured() {
+      const winterGrid = document.getElementById('winterContainer');
+      winterGrid.innerHTML = '';
+
+      PRODUCTS.filter(p => p.isWinter).forEach(p => {
+        winterGrid.innerHTML += `
+          <div class="bg-white rounded-xl border border-brand-border overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="aspect-square bg-slate-100 relative overflow-hidden">
+              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+              <span class="absolute top-2 left-2 bg-brand-orange text-white text-[10px] font-bold px-2 py-0.5 rounded">Winter</span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">${p.category}</span>
+                <h3 class="font-bold text-xs text-brand-navy mt-1 line-clamp-2">${p.name}</h3>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-100">
+                <span class="font-extrabold text-sm text-brand-navy">Rs. ${p.price.toLocaleString()}</span>
+                <button onclick="addToCart(${p.id})" class="bg-brand-navy hover:bg-brand-orange text-white font-bold px-3 py-1.5 rounded text-[11px] transition">
+                  + Add
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // CART MANAGEMENT FUNCTIONS
     function addToCart(productId) {
       const item = cart.find(i => i.id === productId);
       if (item) {
@@ -266,6 +360,7 @@
         const product = PRODUCTS.find(p => p.id === productId);
         cart.push({ ...product, qty: 1 });
       }
+      saveCart();
       updateCartUI();
       openCartDrawer();
     }
@@ -278,11 +373,13 @@
       if (item.qty <= 0) {
         cart = cart.filter(i => i.id !== productId);
       }
+      saveCart();
       updateCartUI();
     }
 
     function removeFromCart(productId) {
       cart = cart.filter(i => i.id !== productId);
+      saveCart();
       updateCartUI();
     }
 
@@ -363,8 +460,10 @@
       window.open(`https://wa.me/923000000000?text=${encodedMessage}`, '_blank');
     }
 
-    // INIT
-    renderProducts();
+    // INITIALIZATION
+    renderWinterFeatured();
+    renderCatalog(PRODUCTS);
+    updateCartUI();
   </script>
 </body>
 </html>
